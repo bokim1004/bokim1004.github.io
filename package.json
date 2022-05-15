@@ -1,11 +1,11 @@
 {
-  "name": "gatsby-starter-bee",
+  "name": "chloe",
   "private": true,
-  "description": "Gatsby blog starter template",
+  "description": "chloe's tech-blog",
   "version": "0.1.0",
-  "author": "Jbee[JaeYeopHan]<ljyhanll@gmail.com>",
+  "author": "chloe kim",
   "bugs": {
-    "url": "https://github.com/JaeYeopHan/gatsby-starter-bee/issues"
+    "url": "https://github.com/bokim1004/chloe.github.io"
   },
   "dependencies": {
     "gatsby": "^2.2.8",
