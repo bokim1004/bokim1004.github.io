@@ -2,8 +2,8 @@ module.exports = {
   title: `Chloebo.io`,
   description: `front-end developer`,
   author: `chloe bo kim`,
-  introduction: `I explain with words and code. I explain with words and code. I explain with words and code.`,
-  siteUrl: `https://gatsby-starter-bee.netlify.com`, // Your blog site url
+  introduction: `👩🏻‍💻프론트엔드 개발자`,
+  siteUrl: `https://bokim1004.github.io/chloe.github.io/`, // Your blog site url
   social: {
     twitter: ``, // Your Twitter account
     github: ``, // Your GitHub account
@@ -12,7 +12,7 @@ module.exports = {
     linkedin: ``, // Your LinkedIn account
     instagram: ``, // Your Instagram account
   },
-  icon: `content/assets/felog.png`, // Add your favicon
+  icon: `content/assets/favi.ico`, // Add your favicon
   keywords: [`blog`],
   comment: {
     disqusShortName: '', // Your disqus-short-name. check disqus.com.

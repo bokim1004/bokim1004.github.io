@@ -61,6 +61,7 @@
     "eslint-plugin-react": "^7.11.1",
     "fs-extra": "^7.0.1",
     "gatsby-post-gen": "^1.0.0",
+    "gh-pages": "^4.0.0",
     "gray-matter": "^4.0.2",
     "inquirer": "^6.2.2",
     "prettier": "^1.14.2",
@@ -80,6 +81,7 @@
   "scripts": {
     "post": "gatsby-post-gen",
     "dev": "gatsby develop",
+    "deploy": "gatsby build && gh-pages -d public -b gh-pages",
     "lint": "eslint --ext .js,.jsx --ignore-pattern public .",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write 'src/**/*.js' 'src/**/*.md'",
     "develop": "gatsby develop",
