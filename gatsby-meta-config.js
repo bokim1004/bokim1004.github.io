@@ -3,7 +3,7 @@ module.exports = {
   description: `front-end developer`,
   author: `chloe bo kim`,
   introduction: `👩🏻‍💻프론트엔드 개발자`,
-  siteUrl: `https://bokim1004.github.io/chloe.github.io/`, // Your blog site url
+  siteUrl: `https://bokim1004.github.io/`, // Your blog site url
   social: {
     twitter: ``, // Your Twitter account
     github: ``, // Your GitHub account
