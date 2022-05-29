@@ -15,8 +15,8 @@ module.exports = {
   icon: `content/assets/images.png`, // Add your favicon
   keywords: [`blog`],
   comment: {
-    disqusShortName: '', // Your disqus-short-name. check disqus.com.
-    utterances: '', // Your repository for archive comment
+    disqusShortName: 'https-bokim1004-github-io', // Your disqus-short-name. check disqus.com.
+    utterances: 'bokim1004/blog-comments', // Your repository for archive comment
   },
   configs: {
     countOfInitialPost: 10, // Config your initial count of post
