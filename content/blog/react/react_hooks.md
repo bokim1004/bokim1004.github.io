@@ -1,12 +1,10 @@
 ---
-title: react_hooks
+title: 리액트 훅스의 클로저 트랩 (Closure Trap) 이해하기(번역)
 date: 2022-07-18 19:07:52
 category: react
 thumbnail: { thumbnailSrc }
 draft: false
 ---
-
-## 리액트 훅스의 클로저 트랩 (Closure Trap) 이해하기
 
 리액트 프로젝트를 개발할 때, 보통 리액트 훅스를 사용한다.
 그러나 개발 과정에서, 여러 문제들을 만나기도 한다.
@@ -76,7 +74,7 @@ Hook은 2가지 단계가 있다. (마운트와 업데이트)
 
 deps parameter를 다루는데 집중해야하는 이유는 여기에 있다. 만약 deps가 undefined면 deps는 null로 취급받는다.
 
-그러고나서 새롭게 패스된 deps와 이전에 memorizedState에 기존에 존재하는 deps와 비교를 한다. 만약 2개가 동일하다면, 이전에 주어진 함수가 바로 사용된다. 그렇지 않으면 새로운 함수가 만들어진다.
+그러고나서 새롭게 패스된 deps와 이전에 memorizedState에 존재하는 deps를 비교한다. 만약 2개가 동일하다면, 이전에 주어진 함수가 바로 사용된다. 그렇지 않으면 새로운 함수가 만들어진다.
 
 2개의 deps가 동일한지 아닌지 비교하는 로직은 매우 간단하다. 만약 이전 deps가 null이면 바로 false를 리턴한다. 이는 2개의 deps가 같은 것이 아니라는 것을 말해준다.
 그렇지 않으면, 배열은 차례로 탐색되고 비교된다.
@@ -154,7 +152,7 @@ useEffect,useMemo,useCallback같은 훅은 deps parameter를 갖는다.
 
 클로저 트랩이 발생하는 이유는, useEffect같은 훅스에서는 특정 상태가 사용되지만 deps 배열에는 추가되지 않아서이다. state가 변경되더라도, 콜백 함수가 재실행되지 않고, 오래된 old state를 여전히 참조한다.
 
-클로저 트랩은 쉽게 해결할 수 있지만, deps배열을 정확하게 설정해야 한다. 이런 방식으로 state가 변경될 떄마다, 콜백 함수는 재실행될 것이고 새 상태를 참조할 것이다.
+클로저 트랩은 쉽게 해결할 수 있지만, deps배열을 정확하게 설정해야 한다. 이런 방식으로 state가 변경될 때마다, 콜백 함수는 재실행될 것이고 새 상태를 참조할 것이다.
 그러나, 이전의 timer나 event listener를 cleaning up하는데 유의해야 한다.
 
 참고: https://betterprogramming.pub/understanding-the-closure-trap-of-react-hooks-6c560c408cde 번역
