@@ -64,6 +64,61 @@ const onChangeHandler = useCallback (e =>{
 하지만, 비싼 계산이 아니라면 useMemo사용을 권장하지 않는 것처럼 함수 재선언을 막기 위해 useCallback을 사용하는 것도 크게 의미있어 보이지는 않는다.<br/>
 만약 하위 컴포넌트가 React.memo()같은 것으로 최적화되어있고 그 하위 컴포넌트에게 callback함수를 props로 넘길 때, 상위 컴포넌트에서 useCallback으로 함수를 선언하는 것이 유용하다라는 의미다.
 
+#### useCallback은 어떤 상황에서 필요한가?
+
+컴포넌트가 렌더링될 때마다 새로운 함수를 생성해서 자식 컴포넌트의 속성값으로 입력하는 경우가 많다.<br/>
+리액트 팀에서는 최근의 브라우저에서 함수 생성이 성능에 미치는 영향은 작다고 주장한다. <br/>
+그보다는 속성값이 매번 변경되기에 자식 컴포넌트에서 React.memo를 사용해도 불필요한 렌더링이 발생한다는 문제점이 있다.<br/>
+리액트에서는 이 문제를 해결하기 위해 `useCallback`훅을 제공한다.
+
+```js
+import React, { useState } from ' react'
+import { saveToServer } from './api'
+import UserEdit from './UserEdit'
+
+function Profile() {
+  const [name, setName] = useState('')
+  const [age, setAge] = useState(0)
+  return (
+    <div>
+      <p>{`name is ${name}`}</p>
+      <p>{`age is ${age}`}</p>
+      <UserEdit
+        onSave={() => saveToServer(name, age)}
+        setName={setName}
+        setAge={setAge}
+      />
+    </div>
+  )
+}
+```
+
+위 코드를 보면 Profile 컴포넌트가 렌더링될때마다 UserEdit컴포넌트의 onSave속성값으로 새로운 함수가 입력된다.
+따라서 UserEdit컴포넌트에서 React.memo를 사용해도 onSave속성값이 항상 변경되고 그 때문에 불필요한 렌더링이 발생된다.
+onSave속성값은 name이나 age값이 변경되지 않으면 항상 같아야 한다.
+useCallback 훅을 사용하면 불필요한 렌더링을 막을 수 있다.
+
+```js
+function Profile() {
+  const [name, setName] = useState('')
+  const [age, setAge] = useState(0)
+
+  const onSave = useCallback(() => saveToServer(name, age), [name, age])
+  return (
+    <div>
+      <p>{`name is ${name}`}</p>
+      <p>{`age is ${age}`}</p>
+      <UserEdit onSave={onSave} setName={setName} setAge={setAge} />
+    </div>
+  )
+}
+```
+
+useCallback훅의 두번째 매개변수는 의존성 배열이다. 의존성 배열이 변경되지 않으면 이전에 생성한 함수가 재사용된다.
+따라서 name과 age값이 변경되지 않으면,UserEdit컴포넌트의 onSave속성값으로 항상 같은 함수가 전달된다.
+
 ### 정리
 
 `useMemo` 는 특정 결과값을 재사용 할 때 사용하는 반면, `useCallback` 은 특정 함수를 새로 만들지 않고 재사용하고 싶을때 사용한다.
+
+> 참고 : 실전 리액트 프로그래밍
