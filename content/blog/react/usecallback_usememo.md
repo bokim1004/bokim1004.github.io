@@ -1,5 +1,5 @@
 ---
-title: usecallback과 usememo 차이점
+title: useCallback과 useMemo 차이점
 date: 2022-08-08 19:08:68
 category: react
 thumbnail: { thumbnailSrc }
