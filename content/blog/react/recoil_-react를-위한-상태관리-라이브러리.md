@@ -121,6 +121,82 @@ function FontButton() {
 }
 ```
 
+### Recoil 활용 예시
+
+변경된 값을 내부 state에 담아서 리스트형 atom에 넣는 로직이다.
+
+```js
+function RegisterModal() {
+  const [formData, setFormData] = useState()
+  const [list, setList] = useRecoilState(productState)
+  const product = useRecoilValue(productState)
+  const resetProduct = useResetRecoilState(productState)
+  //쓰기전용
+  const setList = useSetRecoilState(productsState)
+  const setIsOpen = useSetRecoilState(modalState)
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    })
+  }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    setList((prev) => [...prev, formData])
+    setIsOpen(false)
+  }
+}
+```
+
+컴포넌트가 사라질 때 값을 초기화 해줘야 한다. recoil은 전역 상태기에 특정 값으로 변경되지 않는 이상 이전 값을 유지하게 된다.<br/>
+recoil에서는 reset함수를 추가로 제공해준다. useEffect를 통해 컴포넌트가 언마운트 되는 시점에 값을 초기화 해주지 않으면 기존 데이터가 그대로 불러와지는 오류가 발생한다.
+
+```js
+//상태 초기화
+useEffect(() => {
+  return () => {
+    resetProdcut()
+  }
+}, [])
+```
+
+```js
+export const productState = atom({
+  key: 'productState',
+  default: {
+    idx: 0,
+    name: '',
+    category: '',
+    brand: '',
+    price: 0,
+    desc: '',
+  },
+})
+```
+
+```js
+function Product({data}){
+    const list =useRecoilValue(productState);
+    const setProduct = useSetRecoilState(productState);
+
+
+    const handleDetail =(idx)=>{
+        setProduct(list.filter((row)=>row.idx ===idx[0]);
+        setRegisterOpen(true);)
+    }
+    return (
+        data && (
+            <article
+            className='product'
+            onClick={()=>handleDetail(data.idx)}>
+            </article>
+        )
+    )
+}
+```
+
 버튼를 클릭하면 버튼의 글꼴 크기가 증가하는 동시에 현재 글꼴 크기를 반영하도록 글꼴 크기 레이블을 업데이트하는 두 가지 작업이 수행된다.
 
 참고 : https://recoiljs.org/ko/docs/introduction/core-concepts
