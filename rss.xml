@@ -1,4 +1,112 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Chloebo.io]]></title><description><![CDATA[front-end developer]]></description><link>https://bokim1004.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 17 Sep 2022 01:05:31 GMT</lastBuildDate><item><title><![CDATA[타입스크립트 알아보기]]></title><description><![CDATA[이펙티브 타입스크립트를 읽고 공부한 것을 기록합니다. 타입스크립트 알아보기 타입스크립트는 사용 방식 면에서 조금 독특하다. 
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Chloebo.io]]></title><description><![CDATA[front-end developer]]></description><link>https://bokim1004.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 02 Oct 2022 05:18:41 GMT</lastBuildDate><item><title><![CDATA[타입스크립트 알아보기2]]></title><description><![CDATA[이펙티브 타입스크립트를 읽고 공부한 것을 기록합니다. 타입스크립트 설정 이해하기 타입스크립트는 타입 정보를 가질 때 가장효과적이기에, 되도록이면 를 설정해줘야 한다.
+모든 변수에 타입을 명시하는 것에 익숙해지면, noImplicitAny…]]></description><link>https://bokim1004.github.io/typescript/타입스크립트스터디/</link><guid isPermaLink="false">https://bokim1004.github.io/typescript/타입스크립트스터디/</guid><pubDate>Sun, 02 Oct 2022 12:11:30 GMT</pubDate><content:encoded>&lt;blockquote&gt;
+&lt;p&gt;이펙티브 타입스크립트를 읽고 공부한 것을 기록합니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;타입스크립트-설정-이해하기&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%ED%83%80%EC%9E%85%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%EC%84%A4%EC%A0%95-%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0&quot; aria-label=&quot;타입스크립트 설정 이해하기 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;타입스크립트 설정 이해하기&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;ts&quot;&gt;&lt;pre class=&quot;language-ts&quot;&gt;&lt;code class=&quot;language-ts&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &quot;compilerOptions&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token string-property property&quot;&gt;&quot;noImplicity&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;타입스크립트는 타입 정보를 가질 때 가장효과적이기에, 되도록이면 &lt;code class=&quot;language-text&quot;&gt;noImplicitAny&lt;/code&gt;를 설정해줘야 한다.
+모든 변수에 타입을 명시하는 것에 익숙해지면, noImplicitAny가 없는 채로 작성된 타입스크립트는 완전히 다른 언어처럼 느껴질 것이다.&lt;/p&gt;
+&lt;p&gt;새 프로젝트를 시작한다면 처음부터 &lt;code class=&quot;language-text&quot;&gt;noImplicitAny&lt;/code&gt;를 설정하여 코드를 작성할 때마다 타입을 명시하도록 해야한다.
+그러면, 타입스크립트가 문제를 발견하기 수월해지고, 코드의 가독성이 좋아지며, 개발자의 생산성이 향상된다.
+&lt;code class=&quot;language-text&quot;&gt;noImplicitAny&lt;/code&gt;설정 해제는 자바스크립트로 되어있는 기존 프로젝트를 타입스크립트로 전환하는 상황에만 필요하다.&lt;/p&gt;
+&lt;h4 id=&quot;요약&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%9A%94%EC%95%BD&quot; aria-label=&quot;요약 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;요약&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;타입스크립트 컴파일러는 언어의 핵심 요소에 영향을 미치는 몇 가지 설정을 포함하고 있다.&lt;/li&gt;
+&lt;li&gt;타입스크립트 설정은 커맨드 라인을 이용하기보다는 tsconfig.json을 사용하는 것이 좋다.&lt;/li&gt;
+&lt;li&gt;자바스크립트 프로젝트를 타입스크립트로 전환하는게 아니라면 &lt;code class=&quot;language-text&quot;&gt;noImplicitAny&lt;/code&gt;를 설정하는 것이 좋다.&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;undefined&lt;/code&gt;는 객체가 아닙니다같은 런타임 오류를 방지하기 위해 strictNullCheck를 설정하는 것이 좋다.&lt;/li&gt;
+&lt;li&gt;타입스크립트에서 엄격한 체크를 하고 싶다면 strict설정을 고려해야 한다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;코드-생성과-타입이-관계없음을-이해하기&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%BD%94%EB%93%9C-%EC%83%9D%EC%84%B1%EA%B3%BC-%ED%83%80%EC%9E%85%EC%9D%B4-%EA%B4%80%EA%B3%84%EC%97%86%EC%9D%8C%EC%9D%84-%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0&quot; aria-label=&quot;코드 생성과 타입이 관계없음을 이해하기 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;코드 생성과 타입이 관계없음을 이해하기&lt;/h3&gt;
+&lt;p&gt;타입스크립트 컴파일러는 두 가지 역할을 수행한다.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;최신 타입스크립트/자바스크립트를 브라우저에서 동작할 수 있도록 구버전의 자바스크립트로 트랜스파일한다.&lt;br/&gt; 2.코드의 타입 오류를 체크한다.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;타입 오류가 있는 코드도 컴파일이 가능하다&lt;/code&gt;
+컴파일은 타입체크와 독립적으로 동작하기에 타입오류가 있는 코드도 컴파일이 가능하다.&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;런타임에는 타입체크가 불가능하다&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;ts&quot;&gt;&lt;pre class=&quot;language-ts&quot;&gt;&lt;code class=&quot;language-ts&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;interface&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Square&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  width&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;number&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;interface&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Rectangle&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Square&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  height&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;number&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Shape&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; Square &lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt; Rectangle
+
+&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;calculateArea&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;shape&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; Shape&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;shape &lt;span class=&quot;token keyword&quot;&gt;instanceof&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Rectangle&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; shape&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;width &lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt; shape&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;height
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; shape&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;width &lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt; shape&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;width
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;instanceof 체크는 런타임에 일어나지만, Rectangle은 타입이기에 런타임 시점에 아무런 역할을 할 수 없다.&lt;/p&gt;
+&lt;h3 id=&quot;구조적-타이핑에-익숙해지기&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EA%B5%AC%EC%A1%B0%EC%A0%81-%ED%83%80%EC%9D%B4%ED%95%91%EC%97%90-%EC%9D%B5%EC%88%99%ED%95%B4%EC%A7%80%EA%B8%B0&quot; aria-label=&quot;구조적 타이핑에 익숙해지기 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;구조적 타이핑에 익숙해지기&lt;/h3&gt;
+&lt;p&gt;자바스크립트는 본질적으로 &lt;code class=&quot;language-text&quot;&gt;덕 타이핑&lt;/code&gt; 기반이다. 만약 어떤 함수의 매개변수 값이 모두 제대로 주어진다면, 그 값이 어떻게 만들어졌는지 신경쓰지 않고 사용한다.
+타입스크립트는 매개변수 값이 요구사항을 만족한다면 타입이 무엇인지 신경쓰지 않는 동작을 그대로 모델링한다.
+구조적 타이핑을 제대로 이해한다면 오류인 경우와 오류가 아닌 경우의 차이를 알 수 있고, 더욱 견고한 코드를 작성할 수 있다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;ts&quot;&gt;&lt;pre class=&quot;language-ts&quot;&gt;&lt;code class=&quot;language-ts&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;interface&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Vector&lt;/span&gt; 2D &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  x&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token builtin&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  y&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token builtin&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;interface&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Vector&lt;/span&gt; 3D&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  x&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token builtin&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  y&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token builtin&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  z&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token builtin&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;calculateLength&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;v&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;Vector2D&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; Math&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;sqrt&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;v&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;x&lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt;v&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;x&lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt;v&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;y&lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt;v&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;y&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;normalize&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;v&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;Vector3D&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; length &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;calculateLength&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;v&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    x&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;v&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;x&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;length&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    y&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;v&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;y&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;length&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    z&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;v&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;z&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;length&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token comment&quot;&gt;// 이 함수는 1보다 조금 더 긴(1.41)길이를 가진 결과를 출력할 것이다.&lt;/span&gt;
+&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;normalize&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;x&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;y&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;z&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;타입스크립트가 오류를 잡지 못한 이유를 생각해보면,
+&lt;code class=&quot;language-text&quot;&gt;calculateLength&lt;/code&gt;는 2D 벡터를 기반으로 연산하는데, 버그로 인해 normalize가 3D벡터로 연산되었다.
+z가 정규화에서 무시된 것이다.
+그런데 타입체커가 이 문제를 잡아내지 못했다. &lt;code class=&quot;language-text&quot;&gt;calculateLength&lt;/code&gt;가 2D벡터를 받도록 선언되어있음에도 3D벡터를 받는데 문제가 없었던 이유는 무엇일까?
+&lt;br/&gt;&lt;/p&gt;
+&lt;p&gt;Vector3D와 호환되는 {x,y,z}객체로 &lt;code class=&quot;language-text&quot;&gt;calculateLength&lt;/code&gt;를 호출하면, 구조적 타이핑 관점에서 x와 y가 있어서 Vector2D로 호환된다.
+따라서 오류가 발생하지 않았고, 타입체커가 문제로 인식하지 않았다.&lt;/p&gt;
+&lt;h4 id=&quot;요약-1&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%9A%94%EC%95%BD-1&quot; aria-label=&quot;요약 1 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;요약&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;자바스크립트가 덕 타이핑기반이고 타입스크립트가 이를 모델링하기 위해 구조적 타이핑을 사용함을 이해해야 한다. 어떤 인터페이스에 할당 가능한 값이라면 타입선언에 명시적으로 나열된 속성들을 가지고 있을 것입니다. 타입은 봉인되어있지 않다.&lt;/li&gt;
+&lt;li&gt;클래스 역시 구조적 타이핑 규칙을 따른다는 것을 명심해야 한다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;any타입-지양하기&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#any%ED%83%80%EC%9E%85-%EC%A7%80%EC%96%91%ED%95%98%EA%B8%B0&quot; aria-label=&quot;any타입 지양하기 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;any타입 지양하기&lt;/h3&gt;
+&lt;p&gt;일부 특별한 경우를 제외하고는 any를 사용하면 타입스크립트의 수많은 장점을 누릴 수 없게 된다. 부득이하게 any를 사용하더라도 그 위험성을 알고 있어야 한다&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;any는 함수 시그니처를 무시해버린다.&lt;/code&gt;
+함수를 작성할 때는 시그니처를 명시해야 한다. 호출하는 쪽은 약속된 타입의 입력을 제공하고, 함수는 약속된 타입의 출력을 반환한다.
+그러나 any타입을 사용하면 이런 약속을 어길 수 있다.&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;any타입은 타입 설계를 감춘다&lt;/code&gt;
+애플리케이션 상태 같은 객체를 정의하려면 꽤 복잡하다. 상태 객체 안에 있는 수많은 속성의 타입을 일일이 작성해야 하는데, any타입을 사용하면 간단히 끝내버릴 수 있다.
+물론 이때도 any를 사용하면 안된다.any를 사용하면 타입 설계가 불분명해진다. 설계가 명확히 보이도록 타입을 일일이 작성하는게 좋다.&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;any는 타입시스템의 신뢰도를 떨어뜨린다&lt;/code&gt;
+타입체커가 실수를 잡아주고 코드의 신뢰도를 높일 수 있다.any타입을 쓰지 않으면 런타임에 발견될 오류를 미리 잡을 수 있고 신뢰도를 높일 수 있다.&lt;/p&gt;
+&lt;h4 id=&quot;요약-2&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%9A%94%EC%95%BD-2&quot; aria-label=&quot;요약 2 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;요약&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;any타입을 사용하면 타입체커와 타입스크립트 언어 서비스를 무력화시켜버린다. any타입은 진짜 문제점을 감추며, 개발경험을 나쁘게 하고, 타입시스템의 신뢰도를 떨어뜨린다. 최대한 사용을 피하도록 합시다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;✓-생각-정리&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E2%9C%93-%EC%83%9D%EA%B0%81-%EC%A0%95%EB%A6%AC&quot; aria-label=&quot;✓ 생각 정리 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;✓ 생각 정리&lt;/h3&gt;
+&lt;p&gt;타입스크립트를 쓰고 있지만, 여전히 모르는 부분이 많다고 느껴져서 이펙티브타입스크립트 공부를 시작했다.
+여전히 타입에러는 많이나고 어쩔 수 없이 any를 많이 쓰고 있는 나를 볼 때, 더 공부가 필요하다는 생각이 많이 든다.
+이번 파트를 공부하며 새 프로젝트에 &lt;code class=&quot;language-text&quot;&gt;noImplicitAny&lt;/code&gt;를 설정하여 코드를 작성할 때마다 타입을 명시하도록 해줬다!
+이펙티브 타입스크립트 책을 보면 이해가 잘 안되는 부분이나 지금 나에게 필요하지 않아보이는 내용도 있었다. 그 부분은 스킵하고 필요한 부분이라고 생각하는 부분만
+집중적으로 읽고 공부를 해볼 계획이다-!&lt;/p&gt;</content:encoded></item><item><title><![CDATA[타입스크립트 알아보기]]></title><description><![CDATA[이펙티브 타입스크립트를 읽고 공부한 것을 기록합니다. 타입스크립트 알아보기 타입스크립트는 사용 방식 면에서 조금 독특하다. 
 자바스크립트로 컴파일되며 실행 역시 자바스크립트로 이루어진다. 아이템…]]></description><link>https://bokim1004.github.io/typescript/ts_study/</link><guid isPermaLink="false">https://bokim1004.github.io/typescript/ts_study/</guid><pubDate>Sat, 10 Sep 2022 14:09:35 GMT</pubDate><content:encoded>&lt;blockquote&gt;
 &lt;p&gt;이펙티브 타입스크립트를 읽고 공부한 것을 기록합니다.&lt;/p&gt;
 &lt;/blockquote&gt;
