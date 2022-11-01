@@ -1,3 +1,4 @@
 User-agent: *
-Disallow:
 Sitemap:https://bokim1004.github.io/sitemap.xml
+Disallow:
+
