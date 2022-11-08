@@ -1,16 +1,14 @@
 ---
-title: type system
+title: 타입스크립트의 타입 시스템
 date: 2022-11-06 22:11:09
 category: typescript
 thumbnail: { thumbnailSrc }
 draft: false
 ---
 
-### 타입스크립트의 타입 시스템
-
 타입스크립트는 코드를 자바스크립트로 변환하는 역할도 하지만 가장 중요한 역할은 `타입 시스템`에 있다.
 
-#### 타입이 값들의 집합이라고 생각하기
+### 타입이 값들의 집합이라고 생각하기
 
 런타임에 모든 변수는 자바스크립트 세상의 값으로부터 정해지는 각자의 고유한 값을 가진다.
 변수에는 다음처럼 다양한 종류의 값을 할당할 수 있다.
@@ -73,7 +71,9 @@ interface PersonSpan extends Person {
 }
 ```
 
-#### 타입 단언보다는 타입 선언을 사용하기
+---
+
+### 타입 단언보다는 타입 선언을 사용하기
 
 타입스크립트에서 변수에 값을 할당하고 타입을 부여하는 방법은 두 가지이다.
 
@@ -114,3 +114,165 @@ const bob = {
 ```
 
 타입 단언이 꼭 필요한 경우가 아니라면, 안전성 체크도 되는 타입 선언을 사용하는 것이 좋다.
+
+---
+
+### 함수 표현식에 타입 적용하기
+
+자바스크립트와 타입스크립트에서는 함수 문장(statement)과 함수 표현식(expression)을 다르게 인식한다.
+
+```ts
+//문장
+function rollDice1(sides: number): number {
+  //~~
+}
+//표현식
+const rollDice2 = function (sides: number): number {
+  //~~
+}
+//표현식
+const rollDice3 = (sides: number): number => {
+  //
+}
+```
+
+타입스크립트에서는 `함수 표현식`을 사용하는 것이 좋다. 함수의 매개변수부터 반환값까지 전체를 함수 타입으로 선언하여 함수 표현식에 재 사용할 수 있다는 장점이 있다.
+
+```ts
+type DiceRollFn = (sides: number) => number
+const rollDice: DiceRollFn = (sides) => {
+  //
+}
+```
+
+함수 타입의 선언은 불필요한 코드의 반복을 줄인다. 사칙 연산을 하는 함수 네개는 다음과 같이 작성할 수 있다.
+
+```ts
+function add(a: number, b: number) {
+  return a + b
+}
+function sub(a: number, b: number) {
+  return a - b
+}
+function mul(a: number, b: number) {
+  return a * b
+}
+function div(a: number, b: number) {
+  return a / b
+}
+```
+
+반복되는 함수 시크니처를 하나의 함수 타입으로 통합할 수 있다.
+
+```ts
+type BinaryFn = (a: number, b: number) => number
+const add: BinaryFn = (a, b) => a + b
+const sub: BinaryFn = (a, b) => a - b
+const mul: BinaryFn = (a, b) => a * b
+const div: BinaryFn = (a, b) => a / b
+```
+
+`매개변수나 반환 값에 타입을 명시하기보다 함수 표현식 전체에 타입 구문을 적용하는 것이 좋다.`<br/>
+위 형식의 타입 구문 적용은 처음봤는데 다음에 꼭 적용해봐야겠다.
+
+---
+
+### 타입과 인터페이스의 차이점 알기
+
+타입스크립트에서 명명된 타입을 정의하는 방법은 2가지가 있다.
+
+```ts
+type Tstate {
+  name:string;
+  capital:string;
+}
+interface Istate{
+  name:string;
+  capital:string;
+}
+```
+
+대부분의 경우에는 타입을 사용해도 되고 인터페이스를 사용해도 된다.
+그러나 타입과 인터페이스의 차이를 분명히 알고 같은 상황에서는 동일한 방법으로 명명된 타입을 정의해 일관성을 유지해야 한다.
+
+**인터페이스 선언과 타입선언의 비슷한 점은 무엇일까?**
+
+- 인덱스 시그니처는 인터페이스와 타입에서 모두 사용할 수 있다.
+
+```ts
+type TDict = { [key: string]: string }
+interface IDict {
+  [key: string]: string
+}
+```
+
+- 함수 타입도 인터페이스나 타입으로 정의할 수 있다.
+
+```ts
+type TFn = (x: number) => string
+interface IFn {
+  (x: number): string
+}
+const toStrT: TFn = (x) => '' + x //정상
+const toStrI: IFn = (x) => '' + x //정상
+```
+
+- 타입 별칭과 인터페이스는 모두 제너릭이 가능하다.
+
+```ts
+type TPair<T> = {
+  first: T
+  second: T
+}
+interface IPair<T> {
+  first: T
+  second: T
+}
+```
+
+- 인터페이스는 타입을 확장할 수 있고 타입은 인터페이스를 확장할 수 있다.
+
+```ts
+interface IStateWithPop extends TState {
+  population: number
+}
+type TStateWithPop = IState & { population: number }
+```
+
+여기서 주의할 점은 인터페이스는 유니온 타입 같은 복잡한 타입을 확장하지는 못한다는 것이다.
+복잡한 타입을 확장하고 싶다면 타입과 &를 사용해야 한다.
+
+**인터페이스 선언과 타입선언의 다른 점은 무엇일까?**
+
+- 유니온 타입은 있지만 유니온 인터페이스라는 개념은 없다.
+
+```ts
+type AorB = 'a' | 'b'
+```
+
+인터페이스는 타입을 확장할 수 있지만 유니온은 할 수 없다. 그런데 유니온 타입을 확장하는게 필요할 때가 있다.
+다음 코드를 봐보자. 아래처럼 사용할 수는 있다.
+
+```ts
+type Input = {}
+type Output = {}
+interface VariableMap {
+  [name: string]: Input | Output
+}
+```
+
+또는 유니온 타입에 name속성을 붙인 타입을 만들 수도 있다.
+
+```ts
+type NamedVariable = (Input | Output) & { name: string }
+```
+
+이 타입은 인터페이스로 표현할 수 없다. type키워드는 일반적으로 interface보다 쓰임새가 많다.
+type키워드는 유니온이 될 수도 있고 매핑된 타입 또는 조건부 타입같은 고급기능에 활용되기도 한다.
+튜플과 배열 타입도 type 키워드를 이용해 더 간결하게 표현할 수도 있다.
+
+```ts
+type Pair = [number, number]
+type StringList = string[]
+type NamedNums = [string, ...number[]]
+```
