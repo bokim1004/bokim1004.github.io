@@ -1,16 +1,14 @@
 ---
-title: type system
+title: 타입스크립트의 타입 시스템1
 date: 2022-11-06 22:11:09
 category: typescript
 thumbnail: { thumbnailSrc }
 draft: false
 ---
 
-### 타입스크립트의 타입 시스템
-
 타입스크립트는 코드를 자바스크립트로 변환하는 역할도 하지만 가장 중요한 역할은 `타입 시스템`에 있다.
 
-#### 타입이 값들의 집합이라고 생각하기
+### 타입이 값들의 집합이라고 생각하기
 
 런타임에 모든 변수는 자바스크립트 세상의 값으로부터 정해지는 각자의 고유한 값을 가진다.
 변수에는 다음처럼 다양한 종류의 값을 할당할 수 있다.
@@ -73,7 +71,9 @@ interface PersonSpan extends Person {
 }
 ```
 
-#### 타입 단언보다는 타입 선언을 사용하기
+---
+
+### 타입 단언보다는 타입 선언을 사용하기
 
 타입스크립트에서 변수에 값을 할당하고 타입을 부여하는 방법은 두 가지이다.
 
@@ -114,3 +114,65 @@ const bob = {
 ```
 
 타입 단언이 꼭 필요한 경우가 아니라면, 안전성 체크도 되는 타입 선언을 사용하는 것이 좋다.
+
+---
+
+### 함수 표현식에 타입 적용하기
+
+자바스크립트와 타입스크립트에서는 함수 문장(statement)과 함수 표현식(expression)을 다르게 인식한다.
+
+```ts
+//문장
+function rollDice1(sides: number): number {
+  //~~
+}
+//표현식
+const rollDice2 = function (sides: number): number {
+  //~~
+}
+//표현식
+const rollDice3 = (sides: number): number => {
+  //
+}
+```
+
+타입스크립트에서는 `함수 표현식`을 사용하는 것이 좋다. 함수의 매개변수부터 반환값까지 전체를 함수 타입으로 선언하여 함수 표현식에 재 사용할 수 있다는 장점이 있다.
+
+```ts
+type DiceRollFn = (sides: number) => number
+const rollDice: DiceRollFn = (sides) => {
+  //
+}
+```
+
+함수 타입의 선언은 불필요한 코드의 반복을 줄인다. 사칙 연산을 하는 함수 네개는 다음과 같이 작성할 수 있다.
+
+```ts
+function add(a: number, b: number) {
+  return a + b
+}
+function sub(a: number, b: number) {
+  return a - b
+}
+function mul(a: number, b: number) {
+  return a * b
+}
+function div(a: number, b: number) {
+  return a / b
+}
+```
+
+반복되는 함수 시크니처를 하나의 함수 타입으로 통합할 수 있다.
+
+```ts
+type BinaryFn = (a: number, b: number) => number
+const add: BinaryFn = (a, b) => a + b
+const sub: BinaryFn = (a, b) => a - b
+const mul: BinaryFn = (a, b) => a * b
+const div: BinaryFn = (a, b) => a / b
+```
+
+`매개변수나 반환 값에 타입을 명시하기보다 함수 표현식 전체에 타입 구문을 적용하는 것이 좋다.`<br/>
+위 형식의 타입 구문 적용은 처음봤는데 다음에 꼭 적용해봐야겠다.
+
+---
