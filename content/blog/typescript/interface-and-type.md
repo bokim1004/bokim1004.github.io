@@ -105,3 +105,45 @@ type Pair = [number, number]
 type StringList = string[]
 type NamedNums = [string, ...number[]]
 ```
+
+인터페이스로도 튜플과 비슷하게 구현할 수 있기는 하다.
+
+```ts
+interface Tuple {
+  0: number
+  1: number
+  length: 2
+}
+
+const t: Tuple = [10, 20]
+```
+
+그러나, 인터페이스로 튜플과 비슷하게 구현하면 튜플에서 사용할 수 있는 concat같은 메서드들을 사용할 수 없다.
+그러므로 튜플은 type키워드로 구현하는 것이 낫다.
+반면, 인터페이스는 타입에 없는 몇 가지 기능이 있다. 그중 하나는 바로 `보강이 가능하다는 것`이다.
+
+```ts
+interface IState {
+  name: string
+  capital: string
+}
+
+interface IState {
+  population: number
+}
+
+const wyoming: IState = {
+  name: 'Wyoming',
+  capital: 'cc',
+  population: 500_000,
+}
+```
+
+이 예제처럼 속성을 확장하는 것을 `선언 병합`이라고 한다.
+
+**타입과 인터페이스 둘 중 어느 것을 사용해야할까?**
+복잡한 타입이라면 `타입별칭`을 사용하면 된다.
+어떤 API에 대한 타입 선언을 작성해야 한다면 `인터페이스`를 사용하는 게 좋다.
+API가 변경될 때 사용자가 인터페이스를 통해 새로운 필드를 병합할 수 있어 유용하기 때문이다.
+그러나 프로젝트 내부적으로 사용되는 타입에 선언병합이 발생하는 것은 잘못된 설계이다. 이럴 때는 `타입`을 써야 한다.
+보통 프로젝트에서 어떤 문법을 사용할지 결정할 때 한 가지 일관된 스타일을 확립하고 보강기법이 필요한지 고려해야한다.
