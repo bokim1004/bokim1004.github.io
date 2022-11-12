@@ -1,5 +1,5 @@
 ---
-title: 타입스크립트 알아보기
+title: [Effective typescript] 타입스크립트 알아보기
 date: 2022-09-10 14:09:35
 category: typescript
 thumbnail: { thumbnailSrc }

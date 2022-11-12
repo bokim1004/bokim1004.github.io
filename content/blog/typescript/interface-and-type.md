@@ -1,5 +1,5 @@
 ---
-title: interface and type
+title: [Effective typescript] 타입과 인터페이스 차이점
 date: 2022-11-08 23:11:40
 category: typescript
 thumbnail: { thumbnailSrc }

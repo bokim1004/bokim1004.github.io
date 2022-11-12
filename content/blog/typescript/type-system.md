@@ -1,5 +1,5 @@
 ---
-title: 타입스크립트의 타입 시스템1
+title: [Effective typescript] 타입스크립트의 타입 시스템1
 date: 2022-11-06 22:11:09
 category: typescript
 thumbnail: { thumbnailSrc }
