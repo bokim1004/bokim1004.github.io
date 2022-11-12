@@ -1,5 +1,5 @@
 ---
-title: typescript-generic
+title: 타입 연산과 제너릭 사용으로 반복을 줄이기
 date: 2022-11-10 22:11:17
 category: typescript
 thumbnail: { thumbnailSrc }
