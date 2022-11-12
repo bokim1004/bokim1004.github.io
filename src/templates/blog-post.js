@@ -25,8 +25,9 @@ export default ({ data, pageContext, location }) => {
   }, [])
 
   const post = data.markdownRemark
+
   const metaData = data.site.siteMetadata
-  const { title, comment, author, sponsor } = metaData
+  const { title, comment, author, sponsor, siteUrl } = metaData
   const { disqusShortName, utterances } = comment
   const { title: postTitle, date } = post.frontmatter
 
@@ -51,7 +52,7 @@ export default ({ data, pageContext, location }) => {
           slug={pageContext.slug}
         />
       )}
-      {!!utterances && <Utterances repo={utterances} />}
+      {/* {!!utterances && <Utterances repo={utterances} />} */}
     </Layout>
   )
 }
