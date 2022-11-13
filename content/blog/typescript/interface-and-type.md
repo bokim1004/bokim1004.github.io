@@ -6,18 +6,20 @@ thumbnail: { thumbnailSrc }
 draft: false
 ---
 
+> 이펙티브 타입스크립트를 읽고 공부한 것을 기록합니다.
+
 ### 타입과 인터페이스의 차이점 알기
 
 타입스크립트에서 명명된 타입을 정의하는 방법은 2가지가 있다.
 
 ```ts
-type Tstate {
-  name:string;
-  capital:string;
+type Tstate = {
+  name: string
+  capital: string
 }
-interface Istate{
-  name:string;
-  capital:string;
+interface Istate {
+  name: string
+  capital: string
 }
 ```
 
