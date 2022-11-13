@@ -1,6 +1,6 @@
 module.exports = {
   title: `Chloebo.io`,
-  description: `front-end developer`,
+  description: `프론트엔드 개발을 공부하고 관련된 글을 씁니다.`,
   author: `chloe bo kim`,
   introduction: `👩🏻‍💻 프론트엔드 개발자`,
   siteUrl: `https://bokim1004.github.io/`, // Your blog site url
