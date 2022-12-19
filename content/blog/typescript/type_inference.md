@@ -209,3 +209,73 @@ function getElementContent(el: HTMLElement) {
 반환 타입의 el is HTMLInputElement는 함수 반환이 true인 경우, 타입 체커에서 매개변수의 타입을 좁힐 수 있다고 알려준다.
 
 타입스크립트에서 타입이 어떻게 좁혀지는지 이해한다면 타입추론에 대한 개념을 잡을 수 있고, 오류 발생의 원인을 알 수 있으며 타입 체커를 더 효율적으로 할 수 있다.
+
+#### 비동기 코드에는 콜백대신 async 함수 사용하기
+
+과거의 자바스크립트에서는 비동기 동작을 모델링하기 위해 콜백을 사용했다.
+그렇기에 악명 높은 콜백 지옥을 필연적으로 마주할 수밖에 없었다.
+
+콜백이 중첩된 코드는 직관적으로 이해하기 어렵다. 요청들을 병렬로 실행하거나 오류 상황을 빠져나오고 싶다면 더욱 혼란스러워진다.
+ES2015는 콜백 지옥을 극복하기 위해 프로미스 개념을 도입했다.
+
+```ts
+const page1Promise = fetch(url1)
+page1Promise
+  .then((response1) => {
+    return fetch(url2)
+  })
+  .then((response2) => {
+    return fetch(url3)
+  })
+  .then((response3) => {
+    //
+  })
+  .catch((error) => {})
+```
+
+코드의 중첩도 적어졌고 실행순서도 코드 순서와 같아졌다.
+ES2017에서는 `async await `키워드를 도입하여 콜백 지옥을 더욱 간단하게 처리할 수 있게 되었다.
+
+```ts
+async function fetchPages() {
+  const response1 = await fetch(url1)
+  const response2 = await fetch(url2)
+  const response3 = await fetch(url3)
+}
+```
+
+await 키워드는 각각의 프로미스가 처리될 때까지 fetchPages함수의 실행을 멈춘다.
+async함수 내에서 await중인 프로미스가 거절되면 예외를 던진다.
+이를 통해 일반적인 try/catch구문을 사용할 수 있다.
+
+```ts
+async function fetchPages() {
+  try {
+    const response1 = await fetch(url1)
+    const response2 = await fetch(url2)
+    const response3 = await fetch(url3)
+  } catch (e) {}
+}
+```
+
+콜백보다는 프로미스나 async/await을 사용해야하는 이유는 다음과 같다
+
+- 콜백보다는 프로미스가 코드를 작성하기 쉽다.
+- 콜백보다는 프로미스가 타입을 추론하기 쉽다.
+
+예를 들어, 병렬로 페이지를 로드하고 싶다면 `Promise.all`을 사용해서 프로미스를 조합하면 된다.
+
+```ts
+async function fetchPages() {
+  const [response1, response2, response3] = await Promise.all([
+    fetch(url1),
+    fetch(url2),
+    fetch(url3),
+  ])
+}
+```
+
+일반적으로 프로미스를 생성하기 보다 async/await을 사용해야 한다.
+
+- 일반적으로 더 간결하고 직관적인 코드가 된다.
+- async함수는 항상 프로미스를 반환하도록 강제한다.
