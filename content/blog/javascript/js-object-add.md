@@ -178,7 +178,7 @@ console.log('Object Name:', obj.name) //prints 'Mayank Jain'
 
 ### 4. Object.assign() 사용하기
 
-이 메소드를 사용해도 객체에 프로퍼티를 추가할 수 있다.
+이 메소드를 사용해도 객체에 프로퍼티를 추가할 수 있습니다.
 
 ```js
 Object.assign(target, source)
@@ -206,8 +206,8 @@ console.log(info) //info객체만 나온다
 
 ### 5. Spread Operater(...) 사용하기
 
-`Spread operator (...)`는 기존에 존재하는 객체를 복사한다.
-예시를 살펴보자.
+`Spread operator (...)`는 기존에 존재하는 객체를 복사합니다.
+예시를 살펴봅시다.
 
 ```js
 let obj = { name: 'Mayank', id: '035' }
@@ -222,7 +222,7 @@ obj3 = { ...obj3, ...obj2 } //obj3객체에 obj2객체 프로퍼티를 추가한
 console.log(obj3)
 ```
 
-콘솔 찍힌 것을 차례로 보면 아래와 같다.
+콘솔 찍힌 것을 차례로 보면 아래와 같습니다.
 
 ```js
 { name: 'Mayank', id: '035' }
