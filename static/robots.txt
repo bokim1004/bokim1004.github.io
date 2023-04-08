@@ -1,4 +1,5 @@
 User-agent: *
+Allow: /
 Sitemap:https://bokim1004.github.io/sitemap.xml
 Disallow:
 
