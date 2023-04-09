@@ -157,6 +157,8 @@ Alert에 등록할 프로젝트를 선택하고 상황별로 WHEN, IF값을 넣�
 아직 테스트로 Sentry를 사용해보았는데, 실제로 제대로 적용하면 프론트에서 발생하는 에러 모니터링에 매우 좋을 것 같다는 생각을 했습니다.
 이전에 발생한 에러들도 쉽게 모니터링할 수 있고, 그래프로 시각화되어 있어 어떤 에러가 몇번 발생하는지도 알 수 있어서 매우 유용할 것 같습니다.
 
-참고: https://tech.kakaopay.com/post/frontend-sentry-monitoring/ <br/>
-https://node-js.tistory.com/33
-https://velog.io/@singsoong/Sentry-%EC%84%A4%EC%A0%95-%EC%8A%AC%EB%9E%99-%EC%97%B0%EB%8F%99-Nodejs
+### 참고
+
+- https://tech.kakaopay.com/post/frontend-sentry-monitoring/ <br/>
+- https://node-js.tistory.com/33<br/>
+- https://velog.io/@singsoong/Sentry-%EC%84%A4%EC%A0%95-%EC%8A%AC%EB%9E%99-%EC%97%B0%EB%8F%99-Nodejs
