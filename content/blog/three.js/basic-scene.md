@@ -1,5 +1,5 @@
 ---
-title: [Three.js journey] basic scene
+title: [Three.js journey]basic scene
 date: 2023-05-01 18:05:86
 category: three.js
 thumbnail: { thumbnailSrc }
