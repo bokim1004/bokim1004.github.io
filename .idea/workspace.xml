@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="77ab691c-6d9a-496b-a2ac-29b162dc7967" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/watcherTasks.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/content/blog/article/to-be-a-better-developer.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/blog/article/to-be-a-better-developer.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/content/blog/etc/about-webpack.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/blog/etc/about-webpack.md" afterDir="false" />
