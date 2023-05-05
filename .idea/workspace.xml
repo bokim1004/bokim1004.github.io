@@ -6,6 +6,34 @@
   <component name="ChangeListManager">
     <list default="true" id="77ab691c-6d9a-496b-a2ac-29b162dc7967" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/blog/article/to-be-a-better-developer.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/blog/article/to-be-a-better-developer.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/blog/etc/about-webpack.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/blog/etc/about-webpack.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/blog/etc/s3,cloundfront,ec2.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/blog/etc/s3,cloundfront,ec2.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/blog/javascript/firstclass-object.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/blog/javascript/firstclass-object.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/blog/javascript/js-object-add.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/blog/javascript/js-object-add.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/blog/javascript/promise_and_async-await.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/blog/javascript/promise_and_async-await.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/blog/javascript/prototype.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/blog/javascript/prototype.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/blog/javascript/전역변수의-문제점.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/blog/javascript/전역변수의-문제점.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/blog/react/jest.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/blog/react/jest.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/blog/react/react_hooks.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/blog/react/react_hooks.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/blog/react/recoil_-react를-위한-상태관리-라이브러리.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/blog/react/recoil_-react를-위한-상태관리-라이브러리.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/blog/react/sentry.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/blog/react/sentry.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/blog/react/usecallback_usememo.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/blog/react/usecallback_usememo.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/blog/three.js/basic-scene.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/blog/three.js/basic-scene.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/blog/typescript/index-signature.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/blog/typescript/index-signature.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/blog/typescript/interface-and-type.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/blog/typescript/interface-and-type.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/blog/typescript/ts_study.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/blog/typescript/ts_study.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/blog/typescript/type-system.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/blog/typescript/type-system.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/blog/typescript/type_inference.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/blog/typescript/type_inference.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/blog/typescript/typescript-generic.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/blog/typescript/typescript-generic.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/blog/typescript/타입스크립트스터디.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/blog/typescript/타입스크립트스터디.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gatsby-meta-config.js" beforeDir="false" afterPath="$PROJECT_DIR$/gatsby-meta-config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/contents/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/contents/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/thumbnail-item/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/thumbnail-item/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/thumbnail-item/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/thumbnail-item/index.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/light-theme.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/light-theme.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/templates/blog-post.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/blog-post.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,17 +61,27 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "/Users/chloebokim/Desktop/new-blog",
+    "git-widget-placeholder": "feature/three",
+    "last_opened_file_path": "/Users/chloebokim/Desktop/new-blog/content/assets",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "prettierjs.PrettierConfiguration.Package": "/Users/chloebokim/Desktop/new-blog/node_modules/prettier",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "ts.external.directory.path": "/Users/chloebokim/Library/Application Support/JetBrains/Toolbox/apps/WebStorm/ch-0/231.8109.174/WebStorm.app/Contents/plugins/javascript-impl/jsLanguageServicesImpl/external",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/content/assets" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/content/assets" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -54,6 +92,7 @@
       <updated>1681012172154</updated>
       <workItem from="1681012173238" duration="8608000" />
       <workItem from="1682932024362" duration="4926000" />
+      <workItem from="1682984902305" duration="242000" />
     </task>
     <servers />
   </component>

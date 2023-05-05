@@ -1,15 +1,20 @@
 ---
-title: <Three.js journey> basic scene
+title: Three.js journey <basic scene>
 date: 2023-05-01 18:05:86
 category: three.js
 thumbnail: { thumbnailSrc }
+image: 'https://velog.velcdn.com/images/chloeee/post/c9eb947c-a3c0-4288-83f3-857c3c2bcc22/image.png'
+
 draft: false
 ---
 
 > Three.js journey 강의를 듣고 공부한 것들을 기록합니다.
 
+<p align="center">
+<img src="https://velog.velcdn.com/images/chloeee/post/c9eb947c-a3c0-4288-83f3-857c3c2bcc22/image.png" width="550px" height="390px"  >
+</p>
 
-## First Scene
+### First Scene
 
 scene을 만들기 위해서는 4개의 요소들이 필요합니다.
 

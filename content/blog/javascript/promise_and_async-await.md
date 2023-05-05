@@ -1,8 +1,10 @@
 ---
-title: 프로미스와 async await
+title: Promise와 async await
 date: 2022-11-15 16:11:44
 category: javascript
 thumbnail: { thumbnailSrc }
+image: 'https://velog.velcdn.com/images/chloeee/post/e5d3c8e4-eec5-4104-9ecf-e641c2b4f0d7/image.png'
+
 draft: false
 ---
 

@@ -1,8 +1,9 @@
 ---
-title: type_inference
+title: 타입 추론
 date: 2022-12-14 18:12:58
 category: typescript
 thumbnail: { thumbnailSrc }
+image: 'https://velog.velcdn.com/images/chloeee/post/39563e2c-9400-4099-b125-7382c076ae1d/image.png'
 draft: false
 ---
 

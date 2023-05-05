@@ -5,6 +5,7 @@ import { ThumbnailItem } from '../thumbnail-item'
 import { CATEGORY_TYPE } from '../../constants'
 
 export const Contents = ({ posts, countOfInitialPost, count, category }) => {
+
   const refinedPosts = useMemo(() =>
     posts
       .filter(

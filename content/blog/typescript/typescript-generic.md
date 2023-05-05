@@ -3,6 +3,7 @@ title: 타입 연산과 제너릭 사용으로 반복을 줄이기
 date: 2022-11-10 22:11:17
 category: typescript
 thumbnail: { thumbnailSrc }
+image: 'https://velog.velcdn.com/images/chloeee/post/39563e2c-9400-4099-b125-7382c076ae1d/image.png'
 draft: false
 ---
 
