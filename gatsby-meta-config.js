@@ -1,8 +1,8 @@
 module.exports = {
-  title: `Chloebo.io`,
+  title: `chloe's tech blog`,
   description: `프론트엔드 개발을 공부하고 관련된 글을 씁니다.`,
-  author: `chloe bo kim`,
-  introduction: `👩🏻‍💻 프론트엔드 개발자`,
+  author: `chloe kim`,
+  introduction: `기록하는 것을 좋아하는 프론트엔드 개발자👩🏻‍💻`,
   siteUrl: `https://bokim1004.github.io/`, // Your blog site url
   social: {
     twitter: ``, // Your Twitter account
@@ -12,7 +12,7 @@ module.exports = {
     linkedin: ``, // Your LinkedIn account
     instagram: ``, // Your Instagram account
   },
-  icon: `content/assets/images.png`, // Add your favicon
+  icon: `content/assets/heart.png`, // Add your favicon
   keywords: [`blog`],
   comment: {
     disqusShortName: 'https-bokim1004-github-io', // Your disqus-short-name. check disqus.com.
