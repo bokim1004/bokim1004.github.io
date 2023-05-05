@@ -51,7 +51,7 @@ export default ({ data, pageContext, location }) => {
           slug={pageContext.slug}
         />
       )}
-      {!!utterances && <Utterances repo={utterances} />}
+      {/*{!!utterances && <Utterances repo={utterances} />}*/}
     </Layout>
   )
 }
