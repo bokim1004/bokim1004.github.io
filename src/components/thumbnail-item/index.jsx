@@ -6,7 +6,6 @@ import './index.scss'
 
 export const ThumbnailItem = ({ node }) => {
 
-    console.log("node",node)
     return(
         <Link className={`thumbnail ${TARGET_CLASS}`} to={node.fields.slug}>
             <div key={node.fields.slug}>
