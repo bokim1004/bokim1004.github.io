@@ -25,14 +25,15 @@ export default ({ data, pageContext, location }) => {
   }, [])
 
   const post = data.markdownRemark
+
   const metaData = data.site.siteMetadata
   const { title, comment, author, sponsor, siteUrl } = metaData
   const { disqusShortName, utterances } = comment
-  const { title: postTitle, date } = post.frontmatter
+  const { title: postTitle, date, image } = post.frontmatter
 
   return (
     <Layout location={location} title={title}>
-      <Head title={postTitle} description={post.excerpt} />
+      <Head title={postTitle} description={post.excerpt} image={image} />
       <PostTitle title={postTitle} />
       <PostDate date={date} />
       <PostContainer html={post.html} />
@@ -79,6 +80,7 @@ export const pageQuery = graphql`
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
+        image
       }
     }
   }
