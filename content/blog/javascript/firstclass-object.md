@@ -3,6 +3,7 @@ title: 함수와 일급 객체
 date: 2022-06-05 16:06:79
 category: javascript
 thumbnail: { thumbnailSrc }
+image: 'https://velog.velcdn.com/images/chloeee/post/3f2015f1-0d10-4bc8-a9a7-7860a43c2b90/image.png'
 draft: false
 ---
 

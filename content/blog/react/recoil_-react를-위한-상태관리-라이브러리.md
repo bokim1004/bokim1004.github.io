@@ -1,8 +1,9 @@
 ---
-title: Recoil_ react를 위한 상태관리 라이브러리
+title: react를 위한 상태관리 라이브러리 Recoil
 date: 2022-08-29 18:08:80
 category: react
 thumbnail: { thumbnailSrc }
+image: 'https://velog.velcdn.com/images/chloeee/post/34ee05db-322e-4a30-bc48-cec8c9fecd4c/image.png'
 draft: false
 ---
 

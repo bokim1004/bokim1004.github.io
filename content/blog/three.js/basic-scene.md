@@ -10,6 +10,9 @@ draft: false
 
 > Three.js journey 강의를 듣고 공부한 것들을 기록합니다.
 
+<p align="center">
+<img src="https://velog.velcdn.com/images/chloeee/post/c9eb947c-a3c0-4288-83f3-857c3c2bcc22/image.png" width="550px" height="390px"  >
+</p>
 
 ### First Scene
 

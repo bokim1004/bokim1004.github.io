@@ -1,8 +1,9 @@
 ---
-title: 👉 자바스크립트 객체에 프로퍼티를 추가하는 방법
+title: 자바스크립트 객체에 프로퍼티를 추가하는 방법
 date: 2023-03-11 17:03:42
 category: javascript
 thumbnail: { thumbnailSrc }
+image: 'https://velog.velcdn.com/images/chloeee/post/ead6b29b-6ea7-40d9-8c71-6047800518c2/image.png'
 draft: false
 ---
 

@@ -3,6 +3,7 @@ title: 동적 데이터에 인덱스 시그니처 사용하기
 date: 2022-11-13 13:11:29
 category: typescript
 thumbnail: { thumbnailSrc }
+image: 'https://velog.velcdn.com/images/chloeee/post/39563e2c-9400-4099-b125-7382c076ae1d/image.png'
 draft: false
 ---
 
