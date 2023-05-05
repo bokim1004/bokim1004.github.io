@@ -3,6 +3,7 @@ title: 웹팩(Webpack) 이해하기
 date: 2023-02-25 21:02:21
 category: etc
 thumbnail: { thumbnailSrc }
+image: 'https://velog.velcdn.com/images/chloeee/post/4ad2441e-5c8a-4c20-9f25-571d61ffbfe6/image.png'
 draft: false
 ---
 

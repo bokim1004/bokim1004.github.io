@@ -1,8 +1,9 @@
 ---
-title: prototype
+title: 프로토타입에 대하여
 date: 2022-06-22 07:06:63
 category: javascript
 thumbnail: { thumbnailSrc }
+image: 'https://velog.velcdn.com/images/chloeee/post/f0ee34c4-87c3-43dc-a33b-fbb72d16cb56/image.png'
 draft: false
 ---
 

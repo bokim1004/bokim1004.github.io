@@ -3,6 +3,7 @@ title: S3,CloundFront,EC2
 date: 2022-10-13 17:10:27
 category: etc
 thumbnail: { thumbnailSrc }
+image: 'https://velog.velcdn.com/images/chloeee/post/d4b8de1f-ff90-4426-b681-d16dbb29e4e4/image.png'
 draft: false
 ---
 

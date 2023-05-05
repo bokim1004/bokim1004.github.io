@@ -3,6 +3,7 @@ title: useCallback과 useMemo 차이점
 date: 2022-08-08 19:08:68
 category: react
 thumbnail: { thumbnailSrc }
+image: 'https://velog.velcdn.com/images/chloeee/post/ed085f44-d352-47d3-a184-280a757804b7/image.png'
 draft: false
 ---
 
