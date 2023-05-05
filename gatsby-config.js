@@ -2,6 +2,9 @@ const metaConfig = require('./gatsby-meta-config')
 
 module.exports = {
   siteMetadata: metaConfig,
+  flags: {
+    PARALLEL_QUERY_RUNNING: true,
+  },
   plugins: [
     {
       resolve: `gatsby-plugin-disqus`,
