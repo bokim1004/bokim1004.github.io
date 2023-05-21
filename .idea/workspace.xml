@@ -5,8 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="77ab691c-6d9a-496b-a2ac-29b162dc7967" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/content/blog/three.js/transform-objects.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/blog/three.js/transform-objects.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/blog/three.js/transform-objects.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,7 +65,7 @@
       <workItem from="1681012173238" duration="8608000" />
       <workItem from="1682932024362" duration="4926000" />
       <workItem from="1682984902305" duration="242000" />
-      <workItem from="1684565234357" duration="11172000" />
+      <workItem from="1684565234357" duration="11556000" />
     </task>
     <servers />
   </component>

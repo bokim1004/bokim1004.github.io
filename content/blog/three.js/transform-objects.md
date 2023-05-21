@@ -1,5 +1,5 @@
 ---
-title: transform objects
+title:  <Three.js journey> transform objects
 date: 2023-05-20 15:05:28
 category: three.js
 thumbnail: { thumbnailSrc }
