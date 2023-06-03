@@ -206,7 +206,7 @@ group.scale.y = 2
 group.rotation.y = 0.2
 scene.add(group)
 ```
-위와 같이 그룹을 추가해주면 아래같이 변경된다.
+위와 같이 그룹을 추가해주면 아래같이 변경됩니다.
 
  <p align="center">
 <img src="https://velog.velcdn.com/images/chloeee/post/2083c0cb-c444-41ce-8c90-db83e1c76fe8/image.png
