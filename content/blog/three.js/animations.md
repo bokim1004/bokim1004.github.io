@@ -1,5 +1,5 @@
 ---
-title: Animations
+title: <Three.js journey> Animations
 date: 2023-06-03 16:06:49
 category: three.js
 thumbnail: { thumbnailSrc }
