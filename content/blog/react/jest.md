@@ -3,6 +3,8 @@ title: TDD(테스트 주도 개발)과 jest에 대하여
 date: 2023-02-11 15:02:03
 category: react
 thumbnail: { thumbnailSrc }
+image: 'https://velog.velcdn.com/images/chloeee/post/28f18940-96fb-4da9-9900-0a65685b40d0/image.png'
+
 draft: false
 ---
 

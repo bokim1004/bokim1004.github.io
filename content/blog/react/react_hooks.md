@@ -3,6 +3,7 @@ title: 리액트 훅스의 클로저 트랩 (Closure Trap) 이해하기(번역)
 date: 2022-07-18 19:07:52
 category: react
 thumbnail: { thumbnailSrc }
+image: 'https://velog.velcdn.com/images/chloeee/post/b03404c5-e25e-43bd-9dae-b8bb14cf6b60/image.png'
 draft: false
 ---
 

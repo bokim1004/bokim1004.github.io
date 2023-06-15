@@ -3,7 +3,7 @@ title: SENTRY로 프론트 에러 잡아내기
 date: 2023-04-09 12:04:83
 category: react
 thumbnail: { thumbnailSrc }
-image: 'https://velog.velcdn.com/images/chloeee/post/799f969c-5144-4301-a2db-fa842d3b445f/image.png'
+image: 'https://velog.velcdn.com/images/chloeee/post/13fa205a-7c64-44ee-a43c-e8ad548937f7/image.png'
 draft: false
 ---
 

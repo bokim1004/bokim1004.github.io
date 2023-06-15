@@ -3,6 +3,7 @@ title: 더 나은 프론트엔드 개발자가 되기위한 8가지 팁
 date: 2022-07-02 12:07:44
 category: article
 thumbnail: { thumbnailSrc }
+image : 'https://velog.velcdn.com/images/chloeee/post/726240d6-f3d2-4546-acb6-1c925f1e2592/image.png'
 draft: false
 ---
 
