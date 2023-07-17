@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="77ab691c-6d9a-496b-a2ac-29b162dc7967" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/content/blog/react/react-query.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/content/blog/three.js/fullscreen-and-resizing.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -57,7 +57,8 @@
       <workItem from="1681012173238" duration="8608000" />
       <workItem from="1682932024362" duration="5245000" />
       <workItem from="1686877014855" duration="192000" />
-      <workItem from="1689470539114" duration="5475000" />
+      <workItem from="1689470539114" duration="6175000" />
+      <workItem from="1689587203152" duration="2147000" />
     </task>
     <servers />
   </component>
