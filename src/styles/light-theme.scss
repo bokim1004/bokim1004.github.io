@@ -11,11 +11,13 @@ body.light {
     .author-name-content {
       background-color: $light-category-item-color;
     }
+
     .author-introduction {
       color: $middle-gray;
     }
+
     a {
-      color: #967bb6;
+      color: #8e63e8;
     }
   }
 
@@ -25,19 +27,23 @@ body.light {
     border-right: 6px solid #333;
     border-left: 6px solid #333;
     background-color: $light-category-item-color;
+
     .item {
       border: 1px solid $light-category-border-color;
       background-color: $light-category-item-color;
+
       // -webkit-box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
       // box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
       a {
         color: $light-category-text-color;
       }
+
       &[aria-selected='true'] {
         border: 2px solid #333;
         font-weight: bolder;
         color: #333;
       }
+
       &[aria-selected='true'] a {
         color: $light-category-highlight-text-color;
       }
@@ -45,20 +51,26 @@ body.light {
   }
 
   .thumbnail {
-    h3 {
+    .title {
       color: $dark-gray;
+      font-size: 25px;
+      font-weight: 700;
+
+      &:hover {
+        color: #8e63e8;
+
+      }
     }
+
     p {
       color: $middle-gray;
     }
-    &:hover {
-      background-color: lightyellow;
-      border-radius:30px;
-    }
+
   }
 
   .footer {
     color: $light-gray;
+
     a {
       color: $dark-gray;
     }

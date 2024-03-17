@@ -13,7 +13,7 @@ export const ThumbnailItem = ({ node }) => {
           <img src={node.frontmatter.image} alt={'img'} />
         )}
         <div key={node.fields.slug} className={'slug'}>
-          <h3>{node.frontmatter.title || node.fields.slug}</h3>
+          <p className={'title'}>{node.frontmatter.title || node.fields.slug}</p>
           <p dangerouslySetInnerHTML={{ __html: node.excerpt }} />
         </div>
       </div>
