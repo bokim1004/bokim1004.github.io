@@ -1,9 +1,10 @@
 ---
-title: Fullscreen and resizing
+title: Three.js journey | Fullscreen and resizing
 date: 2023-07-17 18:07:69
 category: three.js
 thumbnail: { thumbnailSrc }
 draft: false
+image: 'https://velog.velcdn.com/images/chloeee/post/c9eb947c-a3c0-4288-83f3-857c3c2bcc22/image.png'
 ---
 
 

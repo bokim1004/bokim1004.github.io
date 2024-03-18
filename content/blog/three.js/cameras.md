@@ -1,5 +1,5 @@
 ---
-title: Cameras
+title: Three.js journey | Cameras
 date: 2023-06-19 22:06:65
 category: three.js
 thumbnail: { thumbnailSrc }

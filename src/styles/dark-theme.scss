@@ -53,15 +53,16 @@ body.dark {
   .thumbnail {
     .title {
       color: $dark-light-font-color;
+      font-size: 25px;
+      font-weight: 700;
+
+
     }
 
     p {
       color: $dark-middle-font-color;
     }
 
-    &:hover {
-      text-shadow: $dark-hover-text-shadow;
-    }
   }
 
   .footer {

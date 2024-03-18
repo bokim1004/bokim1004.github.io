@@ -1,5 +1,5 @@
 ---
-title: react query
+title: React query
 date: 2023-07-16 10:07:49
 category: react
 thumbnail: { thumbnailSrc }
