@@ -1,5 +1,5 @@
 module.exports = {
-  title: `chloe's tech blog`,
+  title: `웹 프론트 Deep dive 🐳`,
   description: `프론트엔드 개발을 공부하고 관련된 글을 씁니다.`,
   author: `chloe kim`,
   introduction: `기록하는 것을 좋아하는 프론트엔드 개발자👩🏻‍💻`,
