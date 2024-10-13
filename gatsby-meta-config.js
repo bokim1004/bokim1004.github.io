@@ -1,7 +1,7 @@
 module.exports = {
-  title: `웹 프론트 Deep dive 🐳`,
+  title: `프론트엔드 로그 by 굥 🐳`,
   description: `프론트엔드 개발을 공부하고 관련된 글을 씁니다.`,
-  author: `chloe kim`,
+  author: `굥`,
   introduction: `기록하는 것을 좋아하는 프론트엔드 개발자👩🏻‍💻`,
   siteUrl: `https://bokim1004.github.io/`, // Your blog site url
   social: {
