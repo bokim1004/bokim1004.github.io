@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[프론트엔드 로그 by 굥 🐳]]></title><description><![CDATA[프론트엔드 개발을 공부하고 관련된 글을 씁니다.]]></description><link>https://bokim1004.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 13 Oct 2024 06:54:21 GMT</lastBuildDate><item><title><![CDATA[글또 10기를 시작하며]]></title><description><![CDATA[글또가 10기를 마지막으로 끝난다는 소식을 듣고, 글또의 마지막 마무리를 꼭 함께 하고 싶다라는 생각이 들었다.
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[프론트엔드 로그 by 굥 🐳]]></title><description><![CDATA[프론트엔드 개발을 공부하고 관련된 글을 씁니다.]]></description><link>https://bokim1004.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 13 Oct 2024 07:05:36 GMT</lastBuildDate><item><title><![CDATA[글또 10기를 시작하며]]></title><description><![CDATA[글또가 10기를 마지막으로 끝난다는 소식을 듣고, 글또의 마지막 마무리를 꼭 함께 하고 싶다라는 생각이 들었다.
 2022년도에 처음 글또를 알게 되어 7기,…]]></description><link>https://bokim1004.github.io/etc/10th-start/</link><guid isPermaLink="false">https://bokim1004.github.io/etc/10th-start/</guid><pubDate>Sun, 13 Oct 2024 14:11:32 GMT</pubDate><content:encoded>&lt;p&gt;글또가 10기를 마지막으로 끝난다는 소식을 듣고, 글또의 마지막 마무리를 꼭 함께 하고 싶다라는 생각이 들었다.&lt;br/&gt;
 2022년도에 처음 글또를 알게 되어 7기, 8기로 활동을 했었다. 개발자로 글을 쓰고 기록하는 습관을 가지고 싶었는데, 실제로 많은 도움이 됐었다.
 내가 쓰는 글들이 아직 엄청 좋은 글은 아닐지라도, 글을 쓰는 습관을 만들게 해주어서 감사한 시간이었다.&lt;br/&gt;
@@ -18,12 +18,15 @@
 &lt;p&gt;일을 할 때 글을 잘 쓰는 건 정말 중요하다. 개발자로서 말보단 글쓰는 걸 더 많이 하며 일하고 있다고 생각한다.&lt;br/&gt;
 노션에 업무를 정리하거나, 문서화를 하는 것 그리고 슬랙으로 동료들과 소통하는 것 모든 업무의 중심엔 “글”이 있다.
 이처럼 글을 잘 쓰면 일할 때 많은 도움이 된다.&lt;br/&gt;
-코드를 짜는 것도 글을 쓰는 것과 많이 닮아있는 것 같다.
+개발자로서 코드를 짜는 것도 글을 쓰는 것과 많이 닮아있는 것 같다.
 코드도 결국 사람이 읽고 쓰는 것이고 글도 마찬가지다. 글을 잘 쓰면 코드도 더 잘 짜게될 것이라는 생각이 든다.
 &lt;br/&gt;
-개발자로서 글을 잘 쓰는 것뿐만 아니라 “나” 개인으로서도 글을 잘쓰고 싶다.난 글을 읽고 쓰는 걸 좋아하고  생각을 기록하는 걸 즐긴다.
-그런데 항상 나만 보는 기록을 하고 있으니, 내 글에는 한계가 있다는 생각이 들었다. &lt;br/&gt;
-확장하는 글쓰기, 공유하는 글쓰기를 하며 한뼘 더 성장하는 글을 쓰고 나만의 글을 써봐야 겠다.
+개발자로서 글을 잘 쓰는 것뿐만 아니라 “나” 개인으로서도 글을 잘쓰고 싶다. 난 글을 읽고 쓰는 걸 좋아하고  생각을 기록하는 걸 즐긴다.
+그런데 항상 나만 보는 기록을 하고 있으니, 내 글에는 한계가 있다는 생각이 들었다.
+&lt;br/&gt;&lt;/p&gt;
+&lt;p&gt;“프로세스 이코노미”라는 책에는 이런 말이 나온다. &lt;code class=&quot;language-text&quot;&gt;내가 가진 걸 세상밖으로 내보내야 한다. 그래야 내 것이 된다.&lt;/code&gt;
+나의 글을 세상 밖으로 내보내야 진정한 내 것이 된다는 말이 인상 깊었다.
+앞으로 세상밖으로 확장하는 글쓰기, 공유하는 글쓰기를 하며 한뼘 더 성장하는 글을 쓰고 나만의 글을 써봐야 겠다.
 6개월동안 글또 활동 잘해보자-!&lt;/p&gt;
 &lt;img src=&quot;https://velog.velcdn.com/images/chloeee/post/b42714fd-26e1-4a07-81c8-c15b9a13162e/image.png&quot; alt=&quot;img&quot;&gt;
 (출처: unsplash)</content:encoded></item><item><title><![CDATA[Web cache 이해하기]]></title><description><![CDATA[최근에 개발한 기능이 매우 느리다는 이슈가 있었다. 캐시가 되면 더 빠르게 동작할 것이라고 가정했는데 이 웹 캐시를 다뤄본 적이 없어서 막막했다.
