@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="77ab691c-6d9a-496b-a2ac-29b162dc7967" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/content/blog/etc/웹애플리케이션-번들링의-시작---webpack개념과-설정-파일-작성-가이드.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/blog/etc/웹애플리케이션-번들링의-시작---webpack개념과-설정-파일-작성-가이드.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/blog/etc/웹애플리케이션-번들링의-시작---webpack개념과-설정-파일-작성-가이드.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,7 +74,7 @@
       <workItem from="1711280227166" duration="3344000" />
       <workItem from="1713010099615" duration="878000" />
       <workItem from="1713682215118" duration="6033000" />
-      <workItem from="1729991533228" duration="5974000" />
+      <workItem from="1729991533228" duration="6270000" />
     </task>
     <servers />
   </component>

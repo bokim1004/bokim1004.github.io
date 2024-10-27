@@ -34,17 +34,17 @@ draft: false
 HTML,CSS,Javascript파일뿐만 아니라 이미지,폰트,JSON등 다양한 파일을 하나의 애플리케이션으로 묶어야 하는데 이 때 필요한 것이
 `번들링`이다. 이 과정에서 주로 사용하는 도구가 바로 <span style="background:yellow; color:black;"> webpack</span>이다. webpack은 모듈을 효과적으로 관리하고 최적화된 방식으로 빌드할 수 있게 돕는다.
 
-### 1. webpack은 무엇인가?
+### <div style="background:#FCF475; color:black; padding:7px"> 1. webpack은 무엇인가? </div>
 
 webpack은 JavaScript 애플리케이션을 위한 정적 모듈 번들러이다. <br/>
 여러 파일과 모듈을 하나의 파일로 묶어 최적화된 결과물을 만들어준다.
 
-#### <span style="background:yellow; color:black;"> 왜 webpack을 사용하는 걸까? </span>
+####  `왜 webpack을 사용하는 걸까?`
 • 파일을 최대한 작게 만들어 페이지 로딩 속도를 개선하기 위해<br/>
 • 의존성 관리를 통해 서로 연관된 파일들을 안전하게 사용하기 위해<br/>
 • 복잡한 모듈을 관리하고, 불필요한 코드를 제거하여 최적화하기 위해
 
-### 2. webpack의 기본 동작 원리
+### <div style="background:#FCF475; color:black; padding:7px"> 2. webpack의 기본 동작 원리 </div>
 webpack은 크게 다음과 같은 요소로 구성되어 있다.
 
 #### `(1) 엔트리 entry`
@@ -107,13 +107,13 @@ module.exports = {
 new연산자로 호출해 플러그읜의 인스턴스를 만들어서 배열에 추가해야 한다.
 난 아래와 같이 플러그인을 추가해줬다.
 
-**1. CleanWebpackPlugin**
+**CleanWebpackPlugin**
 
 - 이것의 역할은 매 빌드 전에 이전 빌드 결과물을 자동으로 삭제해준다. ['js']를 지정하면, 빌드할때마다 `.js`파일이 삭제된다.
 - 이 플러그인은 웹팩 기본 플러그인이 아니므로 별도로 설치해야 한다. `npm install --save-dev clean-webpack-plugin`
 <br/>
 
-**2. DefinePlugin**
+**DefinePlugin**
 
 - DefinePlugin은 코드 내에서 전역 상수처럼 사용할 수 있는 변수를 정의할 수 있게 한다. 예를들어 API_BASE_PATH라고 변수를 지정하면 빌드 시점에 코드에서 해당 변수를 사용해 환경에 다라 다른 값을 주입할 수 있다. 이렇게 하면 코드 내에서 환경별 설정을 쉽게 변경할 수 있다.
 - DefinePlugin은 웹팩 기본 플러그인이기에 별도 설치필요는 없다.
@@ -175,16 +175,16 @@ module.exports = {
 }
 ```
 
-**1. minimize 설정**
+**minimize 설정**
 
 - 빌드 환경이 production, staging, development일 때만 코드 압축을 적용하도록 설정한다. 즉, 해당 환경에서만 번들이 압축되어 배포된다.
 
-**2. TerserPlugin 설정**
+**TerserPlugin 설정**
 - TerserPlugin을 사용하여 압축을 수행하며, `extractComments:false`옵션으로 주석을 제거하고 ` test: /\.js$/` 옵션으로 Javascript파일에만 압축을 적용한다.
 - TerserPlugin은 기본적으로 웹팩에 포함되지 않은 별도의 패키지이기 때문에, 사용하려면 설치해야 한다.
   - `npm install terser-webpack-plugin --save-dev`
 
-**3. 환경에 따른 압축 세부 설정**
+**환경에 따른 압축 세부 설정**
 - `drop_console, drop_debugger`: production 환경일 경우 console과 debugger 관련 코드가 최종 번들에서 제거된다.
 - `pure_funcs`: production 환경일 때 console.log, console.info, console.debug 같은 콘솔 관련 함수 호출이 제거된다. 이를 통해 불필요한 로그 함수 호출을 줄여 번들 크기를 줄일 수 있다.
 
