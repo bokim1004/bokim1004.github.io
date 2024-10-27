@@ -30,9 +30,9 @@ draft: false
 
 <br/>
 
-프론트엔드 개발을 하다보면 "모듈"이라는 개념을 접하게 된다. <br/>
+프론트엔드 개발을 하다보면 `"모듈"`이라는 개념을 접하게 된다. <br/>
 HTML,CSS,Javascript파일뿐만 아니라 이미지,폰트,JSON등 다양한 파일을 하나의 애플리케이션으로 묶어야 하는데 이 때 필요한 것이
-`번들링`이다. 이 과정에서 주로 사용하는 도구가 바로 <span style="background:yellow; color:black;"> webpack</span>이다. webpack은 모듈을 효과적으로 관리하고 최적화된 방식으로 빌드할 수 있게 돕는다.
+`번들링`이다. 이 과정에서 주로 사용하는 도구가 바로  **webpack**이다. webpack은 모듈을 효과적으로 관리하고 최적화된 방식으로 빌드할 수 있게 돕는다.
 
 ### <div style="background:#FCF475; color:black; padding:7px"> 1. webpack은 무엇인가? </div>
 
