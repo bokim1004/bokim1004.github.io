@@ -16,7 +16,7 @@ three.js스터디에 참가하며 공부하고 있다. 이번엔 Three.js의 3�
 카메라의 위치와 방향을 조정하여 3D 공간에서의 특정 객체에 포커스를 맞추거나 특정 장면을 강조할 수 있다.
 
 ### <div style="background:#FCF475; color:black; padding:7px"> 2. 카메라 종류  </div>
-Three.js에서는 대표적으로 `PerspectiveCamera`와 `OrthographicCamera를 사용한다.
+Three.js에서는 대표적으로 `PerspectiveCamera`와 `OrthographicCamera`를 사용한다.
 
 `PerspectiveCamera`
 - 원근법이 적용된 카메라로, 멀리 있는 물체는 작게 보이고 가까이 있는 물체는 크게 보이도록 렌더링된다.
