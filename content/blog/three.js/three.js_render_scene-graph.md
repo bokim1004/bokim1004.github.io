@@ -174,7 +174,7 @@ parent.position.set(1, 1, 0);
 Three.js는 Scene graph에 있는 객체들을 트리 구조로 관리하기에, 순회를 통해 모든 객체를 빠짐없이 확인하고, 필요한 경우 객체를 화면에 그려준다.
 
 
-### <div style="background:#FFFFCC; color:black; padding:7px"> 씬그래프 예제 코드</div>
+### <div style="background:#FFFFCC; color:black; padding:7px"> Scene graph 예제 코드</div>
 
 ```js
 // 중앙 구체 생성

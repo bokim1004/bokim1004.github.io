@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="77ab691c-6d9a-496b-a2ac-29b162dc7967" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/content/blog/three.js/three.js_render_scene-graph.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/blog/three.js/three.js_render_scene-graph.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/blog/three.js/three.js_render_scene-graph.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,7 +76,7 @@
       <workItem from="1713682215118" duration="6033000" />
       <workItem from="1729991533228" duration="7430000" />
       <workItem from="1731135079097" duration="10396000" />
-      <workItem from="1731161679326" duration="6392000" />
+      <workItem from="1731161679326" duration="6552000" />
     </task>
     <servers />
   </component>
