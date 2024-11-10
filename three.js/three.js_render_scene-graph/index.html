@@ -117,7 +117,7 @@ renderer<span class="token punctuation">.</span><span class="token function">set
 <li>
 <p><strong>안티 앨리어싱(Anti-aliasing)</strong>:</p>
 <ul>
-<li><code class="language-text">WebGLRenderer</code>의 <code class="language-text">antialias</code> 속성을 <code class="language-text">true</code>로 설정하여 안티 앨리어싱을 활성화할 수 있습니다.</li>
+<li><code class="language-text">WebGLRenderer</code>의 <code class="language-text">antialias</code> 속성을 <code class="language-text">true</code>로 설정하여 안티 앨리어싱을 활성화할 수 있다.</li>
 </ul>
 <p>이는 경계의 픽셀 색상을 부드럽게 조정하여 계단현상을 줄여준다.</p>
 <div class="gatsby-highlight" data-language="jsx"><pre class="language-jsx"><code class="language-jsx"><span class="token keyword">const</span> renderer <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">THREE<span class="token punctuation">.</span>WebGLRenderer</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token literal-property property">antialias</span><span class="token operator">:</span> <span class="token boolean">true</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -138,12 +138,12 @@ setSize 메서드는 Three.js에서 WebGLRenderer 객체가 렌더링할 캔버�
 <ol start="3">
 <li><strong>Post-processing</strong>:
 <ul>
-<li>후처리 효과를 적용하여 안티 앨리어싱을 추가로 적용할 수 있습니다. 예를 들어, FXAA(Fast Approximate Anti-Aliasing)와 같은 후처리 기술을 사용할 수 있다.</li>
+<li>후처리 효과를 적용하여 안티 앨리어싱을 추가로 적용할 수 있다. 예를 들어, FXAA(Fast Approximate Anti-Aliasing)와 같은 후처리 기술을 사용할 수 있다.</li>
 </ul>
 </li>
 <li><strong>텍스처 필터링</strong>:
 <ul>
-<li>텍스처의 필터링 모드를 설정하여 더 부드러운 경계를 만들 수 있습니다. 예를 들어, <code class="language-text">THREE.LinearFilter</code>와 같은 필터를 사용할 수 있다.</li>
+<li>텍스처의 필터링 모드를 설정하여 더 부드러운 경계를 만들 수 있다. 예를 들어, <code class="language-text">THREE.LinearFilter</code>와 같은 필터를 사용할 수 있다.</li>
 </ul>
 </li>
 </ol>
