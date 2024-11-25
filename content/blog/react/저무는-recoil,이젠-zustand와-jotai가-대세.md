@@ -56,7 +56,7 @@ memory leak이슈가 있다는 글은 [깃헙 이슈](https://github.com/faceboo
 [예시 블로그 2)](https://raejoonee.tistory.com/29)
 
 현업에서 recoil을 사용했을 때는, memory leak 이슈를 크게 느끼지 못했었다.<br/>
-atom에서 파생되는 selector, atomFamily, selectorFamily에 캐시 정책을 기본값인 keep-all을 사용하게 되면 이전 상태들이 메모리상에서 해제되지 않고 유지된다. <br/>
+그러나 atom에서 파생되는 selector, atomFamily, selectorFamily에 캐시 정책을 기본값인 keep-all을 사용하게 되면 이전 상태들이 메모리상에서 해제되지 않고  유지되기에 memory leak 이슈가 발생할 수 있다고 한다.<br/>
 그래서 Recoil 공식 문서에서는 아래와 같이 메모리 문제를 해결하는 방법을 제시해주었다.
 <p align="center">
 <img src="https://velog.velcdn.com/images/chloeee/post/d24bceb2-9640-400e-acef-2245233edc06/image.png
@@ -172,7 +172,7 @@ const [sizeTendency, setSizeTendency] = useAtom(sizeTendencyState);
 - 그리고 recoil에서는 파생된 값을 만들기 위해서는 selector가 필요했지만, jotai에서는 selector없이 atom만으로도 가능하다.
 
 jotai를 보면 더 가볍고 작은 프로젝트에 적합하다고 느꼈다. 더 복잡한 상태관리는 recoil, zustand가 더 좋을 것 같기도 하다.
-recoil과 비교해봤을 대 zustand,jotai가 좀 더 사용이 직관적이고 간단하다고 느꼈다.  <br/>
+recoil과 비교해봤을 때 zustand,jotai가 좀 더 사용이 직관적이고 간단하다고 느꼈다.  <br/>
 
 
 ## 기회가 되면 zustand, jotai로 마이그레이션을 진행해보자
