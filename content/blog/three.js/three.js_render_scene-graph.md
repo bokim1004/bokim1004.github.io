@@ -57,7 +57,7 @@ Three.js에서 계단 현상(aliasing)은 렌더링된 이미지의 경계가 �
 Three.js에서는 계단현상을 완화하기 위해 다양한 방법을 사용할 수 있다.
 
 1. **안티 앨리어싱(Anti-aliasing)**:
-    - `WebGLRenderer`의 `antialias` 속성을 `true`로 설정하여 안티 앨리어싱을 활성화할 수 있습니다. 
+    - `WebGLRenderer`의 `antialias` 속성을 `true`로 설정하여 안티 앨리어싱을 활성화할 수 있다. 
    이는 경계의 픽셀 색상을 부드럽게 조정하여 계단현상을 줄여준다.
 
     ```jsx
@@ -78,10 +78,10 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 
 
 3. **Post-processing**:
-    - 후처리 효과를 적용하여 안티 앨리어싱을 추가로 적용할 수 있습니다. 예를 들어, FXAA(Fast Approximate Anti-Aliasing)와 같은 후처리 기술을 사용할 수 있다.
+    - 후처리 효과를 적용하여 안티 앨리어싱을 추가로 적용할 수 있다. 예를 들어, FXAA(Fast Approximate Anti-Aliasing)와 같은 후처리 기술을 사용할 수 있다.
    
 4. **텍스처 필터링**:
-    - 텍스처의 필터링 모드를 설정하여 더 부드러운 경계를 만들 수 있습니다. 예를 들어, `THREE.LinearFilter`와 같은 필터를 사용할 수 있다.
+    - 텍스처의 필터링 모드를 설정하여 더 부드러운 경계를 만들 수 있다. 예를 들어, `THREE.LinearFilter`와 같은 필터를 사용할 수 있다.
 
 ### <div style="background:#FFFFCC; color:black; padding:7px"> 4. Renderer의 주요 메서드와 활용법 </div>
 
