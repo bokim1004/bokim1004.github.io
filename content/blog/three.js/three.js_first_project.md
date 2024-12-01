@@ -75,6 +75,12 @@ renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
 
 ### 2.  geometry와 material을 조합하여 3D객체인 mesh를 만든다.
 달을 만들기 위해 `THREE.SphereGeometry`로 구체 형태의 3D 객체를 생성한다.
+
+<p align="center">
+<img src="https://velog.velcdn.com/images/chloeee/post/8223e3ae-7a79-4beb-9940-8663605f09ee/image.png
+" width="500px" >
+</p>
+
 달의 material은 현실감 있는 조명과 반사 효과를 구현하기 위해 `MeshStandardMaterial`을 사용했다. <br/>
 meshStandardMaterial은 `물리 기반 렌더링(PBR, Physically-Based Rendering)`을 지원하는 고급 material이다.
 
