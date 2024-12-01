@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="77ab691c-6d9a-496b-a2ac-29b162dc7967" name="Changes" comment="" />
+    <list default="true" id="77ab691c-6d9a-496b-a2ac-29b162dc7967" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/content/blog/three.js/three.js_first_project.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -76,7 +79,10 @@
       <workItem from="1731161679326" duration="8786000" />
       <workItem from="1732337474734" duration="5325000" />
       <workItem from="1732346518875" duration="7768000" />
-      <workItem from="1732370726412" duration="6121000" />
+      <workItem from="1732370726412" duration="7147000" />
+      <workItem from="1732952398997" duration="3866000" />
+      <workItem from="1732956344164" duration="15101000" />
+      <workItem from="1733015872098" duration="7000" />
     </task>
     <servers />
   </component>
