@@ -112,8 +112,12 @@ renderer<span class="token punctuation">.</span><span class="token function">set
 <p><code class="language-text">setSize</code> 메서드로 렌더러의 크기를 설정하고 <code class="language-text">setPixelRatio</code>메서드로 렌더러의 픽셀 비율을 설정한다.
 <code class="language-text">Math.min(window.devicePixelRatio, 2)</code>로 픽셀 비율 최대 값을 2로 제한한다. 그 이유는 너무 높은 devicePixelRatio 값이 렌더링 성능에 부담을 줄 수 있기 때문이다.</p>
 <h3 id="2--geometry와-material을-조합하여-3d객체인-mesh를-만든다" style="position:relative;"><a href="#2--geometry%EC%99%80-material%EC%9D%84-%EC%A1%B0%ED%95%A9%ED%95%98%EC%97%AC-3d%EA%B0%9D%EC%B2%B4%EC%9D%B8-mesh%EB%A5%BC-%EB%A7%8C%EB%93%A0%EB%8B%A4" aria-label="2  geometry와 material을 조합하여 3d객체인 mesh를 만든다 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2.  geometry와 material을 조합하여 3D객체인 mesh를 만든다.</h3>
-<p>달을 만들기 위해 <code class="language-text">THREE.SphereGeometry</code>로 구체 형태의 3D 객체를 생성한다.
-달의 material은 현실감 있는 조명과 반사 효과를 구현하기 위해 <code class="language-text">MeshStandardMaterial</code>을 사용했다. <br/>
+<p>달을 만들기 위해 <code class="language-text">THREE.SphereGeometry</code>로 구체 형태의 3D 객체를 생성한다.</p>
+<p align="center">
+<img src="https://velog.velcdn.com/images/chloeee/post/8223e3ae-7a79-4beb-9940-8663605f09ee/image.png
+" width="500px">
+</p>
+<p>달의 material은 현실감 있는 조명과 반사 효과를 구현하기 위해 <code class="language-text">MeshStandardMaterial</code>을 사용했다. <br/>
 meshStandardMaterial은 <code class="language-text">물리 기반 렌더링(PBR, Physically-Based Rendering)</code>을 지원하는 고급 material이다.</p>
 <div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token keyword">const</span> moonMaterial <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">THREE<span class="token punctuation">.</span>MeshStandardMaterial</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
   <span class="token literal-property property">roughness</span><span class="token operator">:</span> <span class="token number">0.7</span><span class="token punctuation">,</span>    <span class="token comment">// 표면의 거칠기 조절 (1에 가까울수록 거친 표면)</span>
