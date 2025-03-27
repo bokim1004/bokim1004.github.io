@@ -1,4 +1,131 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[프론트엔드 기록 by chloee 🐳]]></title><description><![CDATA[프론트엔드 개발을 공부하고 관련된 글을 씁니다.]]></description><link>https://bokim1004.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 16 Mar 2025 11:18:55 GMT</lastBuildDate><item><title><![CDATA[npm 패키지 만들어보기 (react-popup-draggable-resizable)]]></title><description><![CDATA[NPM패키지를 한번도 publish해본 경험이 없어서 이번 기회에 경험삼아 만들어보고 싶었다.
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[프론트엔드 기록 by chloee 🐳]]></title><description><![CDATA[프론트엔드 개발을 공부하고 관련된 글을 씁니다.]]></description><link>https://bokim1004.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 27 Mar 2025 09:47:10 GMT</lastBuildDate><item><title><![CDATA[Vanilla JS에서 브라우저 라우터와 Hash 라우터의 차이]]></title><description><![CDATA[들어가며 오랜만에 Vanilla JS로 개발을 해볼 일이 생겼다.Vanilla JS로 SPA 구현하기를 진행하다보니 라우팅 구현을 2가지 방식으로 할 수 있다는 것을 알게 되었다.
+History API를 이용한 브라우저 라우터와 Hash…]]></description><link>https://bokim1004.github.io/javascript/vanilla-js에서-browser-라우터와-hash-라우터의-차이와-구현-방법/</link><guid isPermaLink="false">https://bokim1004.github.io/javascript/vanilla-js에서-browser-라우터와-hash-라우터의-차이와-구현-방법/</guid><pubDate>Tue, 25 Mar 2025 18:03:44 GMT</pubDate><content:encoded>&lt;h3 id=&quot;들어가며&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%93%A4%EC%96%B4%EA%B0%80%EB%A9%B0&quot; aria-label=&quot;들어가며 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;들어가며&lt;/h3&gt;
+&lt;p&gt;오랜만에 Vanilla JS로 개발을 해볼 일이 생겼다.Vanilla JS로 SPA 구현하기를 진행하다보니 라우팅 구현을 2가지 방식으로 할 수 있다는 것을 알게 되었다.
+History API를 이용한 브라우저 라우터와 Hash 라우터로 라우팅 구현을 하면서 좀 더 이 부분에 대해 깊이 있는 이해를 하면 좋겠다는 생각이 들었다.
+둘의 차이는 무엇이고 동작원리는 어떤지 살펴본 후, 실제로 라우팅 시 겪었던 이슈를 정리해봤다.&lt;/p&gt;
+&lt;h3 id=&quot;-1-hash-router란&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#-1-hash-router%EB%9E%80&quot; aria-label=&quot; 1 hash router란 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;🔍 1. Hash Router란?&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;✨ 특징&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;URL의 #(해시)를 기준으로 라우팅한다.&lt;br/&gt;
+&lt;code class=&quot;language-text&quot;&gt;예: &amp;lt;https://example.com/#/about&gt;&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;# 이후의 값&lt;/code&gt;은 브라우저가 서버로 전송하지 않는다.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;서버는 항상 같은 index.html을 응답하고, 클라이언트가 라우팅 처리한다.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;⚙️ 작동 방식&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;window.addEventListener(&apos;hashchange&apos;, callback)&lt;/code&gt;을 통해 URL 변경을 감지한다.&lt;/li&gt;
+&lt;li&gt;URL의 location.hash 값을 읽어와 렌더링 로직을 수행한다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;🌟 장점&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;서버 설정이 필요 없어서 정적 호스팅에 적합하다.&lt;/li&gt;
+&lt;li&gt;아주 간단하게 구현 가능하다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;❌ 단점&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;SEO에 불리하다. 구글이 해시 기반 라우팅을 완전히 크롤링하지 못하는 경우도 있다고 한다.&lt;/li&gt;
+&lt;li&gt;브라우저 기본 동작과 달라 사용자 경험이 떨어질 수 있다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;--2-browser-router-history-router란&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#--2-browser-router-history-router%EB%9E%80&quot; aria-label=&quot;  2 browser router history router란 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;🔍  2. Browser Router (History Router)란?&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;✨ 특징&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Browser Router는 HTML5 History API를 기반으로 URL을 관리한다.
+&lt;code class=&quot;language-text&quot;&gt;예: https://example.com/about&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;실제로 페이지를 새로고침하지 않으면서도, 마치 페이지가 이동한 것처럼 보이게 한다.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;⚙️ 작동 방식&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Browser Router는 History API를 기반으로 작동하는데 크게 알아야할 개념은 아래 3가지다.&lt;br/&gt;
+&lt;code class=&quot;language-text&quot;&gt;1. history.pushState(state, title, url)&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;브라우저의 히스토리 스택에 새로운 항목을 추가하면서,주소창(URL)을 바꿔주는 함수로 pushState를 하면 페이지는 새로고침되지 않는다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;history&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;pushState&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;/profile&lt;/span&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;위 코드는 브라우저 주소창을 profile로 바꾼다.&lt;br/&gt;
+&lt;strong&gt;주의해야할 점은 화면은 직접 다시 렌더링해야 한다는 것이다&lt;/strong&gt;
+history.pushState는 그저 url만 바꿔준다.&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;2. history.replaceState(state, title, url)&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;현재 히스토리 항목을 교체한다. 즉, 지금 보고 있는 페이지의 URL을 바꾸는 것이다.&lt;/li&gt;
+&lt;li&gt;뒤로 가기를 눌러도 이전 URL로 돌아가지 않는다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;    history&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;replaceState&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;token interpolation&quot;&gt;&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;token constant&quot;&gt;BASE_PATH&lt;/span&gt;&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;/login&lt;/span&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;3.popState 이벤트&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;브라우저에서 뒤로 가기 / 앞으로 가기 했을 때 발생하는 이벤트이다.&lt;/li&gt;
+&lt;li&gt;pushState, replaceState는 이 이벤트를 트리거하지 않는다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;window&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;addEventListener&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;popstate&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; renderRoute&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;🌟 장점&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;URL이 깔끔하고, 사용자 경험이 더 자연스럽다.&lt;/li&gt;
+&lt;li&gt;SEO 친화적이다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;❌ 단점&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;서버 설정 필요하다. 모든 경로 요청에 대해 index.html을 리턴하도록 설정해야 한다 → 그렇지 않으면 새로고침 시 404 에러가 발생한다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;난 package.json에서 build시 &lt;code class=&quot;language-text&quot;&gt;cp dist/index.html dist/404.html&lt;/code&gt; 이 부분을 추가해줬다. build시  404.html을 index.html처럼 동작하게한 것인데, index.html을 그대로 복사해서 404.html로 만들어두면 404처럼 보여도 실제로는 라우팅이 잘 작동하게 된다.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;정적 호스팅(GitHub Pages 등)에서는 설정이 번거로울 수 있다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;hash-라우터와-브라우저-라우터-구현-시-이슈가-있었던-부분&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#hash-%EB%9D%BC%EC%9A%B0%ED%84%B0%EC%99%80-%EB%B8%8C%EB%9D%BC%EC%9A%B0%EC%A0%80-%EB%9D%BC%EC%9A%B0%ED%84%B0-%EA%B5%AC%ED%98%84-%EC%8B%9C-%EC%9D%B4%EC%8A%88%EA%B0%80-%EC%9E%88%EC%97%88%EB%8D%98-%EB%B6%80%EB%B6%84&quot; aria-label=&quot;hash 라우터와 브라우저 라우터 구현 시 이슈가 있었던 부분 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;HASH 라우터와 브라우저 라우터 구현 시 이슈가 있었던 부분&lt;/h3&gt;
+&lt;p&gt;나의 경우엔 배포 시 url에 BASE_PATH가 붙어야했다. 그래서 브라우저 라우터쪽에는 BASE_PATH를 아래와 같이 붙여줬다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; routes &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;$&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token constant&quot;&gt;BASE_PATH&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; MainPage&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;$&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token constant&quot;&gt;BASE_PATH&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;login&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; LoginPage&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;$&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token constant&quot;&gt;BASE_PATH&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;profile&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; ProfilePage&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;그런데 문제는 hash router쪽 배포한 url로 들어가면 404페이지가 나오는 이슈가 있었다.
+문제의 원인을 한참들여다 봤다,,&lt;br/&gt;
+&lt;code class=&quot;language-text&quot;&gt;vite.config.js&lt;/code&gt;부분에 아래와 같이 build옵션을 설정해주고, base도 설정해줬다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt; &lt;span class=&quot;token literal-property property&quot;&gt;base&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; isProd &lt;span class=&quot;token operator&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;/front_5th_chapter1-1/&quot;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;/&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+ &lt;span class=&quot;token literal-property property&quot;&gt;build&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;token literal-property property&quot;&gt;rollupOptions&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token literal-property property&quot;&gt;input&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+          &lt;span class=&quot;token literal-property property&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;resolve&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;__dirname&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;index.html&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+          &lt;span class=&quot;token literal-property property&quot;&gt;hash&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;resolve&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;__dirname&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;index.hash.html&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;build하면 dist에 index.hash.html이 잘 나오는데도 원인을 찾지 못해 이것 저것 시도하다가 BASE_PATH가 중복된 것이 문제의 원인이었다 ㅠㅠ
+BrowserRouter와 HashRouter는 URL을 해석하는 방식이 달라서 base_path 처리 방식도 다르게 가져가야한다는 것을 알게 되었다.&lt;/p&gt;
+&lt;p&gt;🔍 요약해보면,&lt;br/&gt;
+BrowserRouter는 실제 경로(URL path)를 사용하기 때문에 base_path 설정이 필요했다.&lt;br/&gt;
+난 GitHub Pages처럼 서브 디렉토리에 호스팅이 필요했기에 base 설정이 필수인 상황이었다.&lt;/p&gt;
+&lt;p&gt;HashRouter는 # 뒤에 붙는 해시로 경로를 관리하기 때문에, base_path를 넣을 필요가 없었다.오히려 넣으면 base_path가 중복되었다.
+그래서 base_path를 넣지 않고 라우팅되게 해주었다~!&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; hashRoutes &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;/&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; MainPage&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;/login&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; LoginPage&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;/profile&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; ProfilePage&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3 id=&quot;마치며&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%A7%88%EC%B9%98%EB%A9%B0&quot; aria-label=&quot;마치며 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;마치며&lt;/h3&gt;
+&lt;p&gt;핵심적으로 hash router 동작에 대한 이해가 부족했던 것 같다.&lt;br/&gt;
+&lt;code class=&quot;language-text&quot;&gt;vite.config.js&lt;/code&gt;에서 base를 추가한 건 이 웹사이트는 &lt;code class=&quot;language-text&quot;&gt;/front_5th_chapter1-1/&lt;/code&gt; 하위 폴더 안에 있으니 이걸 참고해 파일을 가져오라는 뜻이다.
+그래서 빌드 시 나온 dist에 있는 html파일에서 &lt;code class=&quot;language-text&quot;&gt;/front_5th_chapter1-1/assets/main.js&lt;/code&gt;이런 파일을 가져오는 것이다.&lt;br/&gt;
+그런데 이 부분은 라우팅(URL path)을 위한 건 아니기 때문에 브라우저 라우팅 시 base path(&lt;code class=&quot;language-text&quot;&gt;/front_5th_chapter1-1/&lt;/code&gt; )를 넣어야하는 것이었고,
+HashRouter는 그냥 index.hash.html만 잘 열리면, JS가 알아서 해시 경로 보고 라우팅해주는 방식이기 때문에
+라우팅 자체는 base path를 신경 안 써도 되는 구조인 것이다.&lt;br/&gt;
+개념만 공부하는 것보다 역시 직접 개발해보며 겪어봐야 알게되는 것 같다 &gt;_&amp;#x3C;&lt;/p&gt;
+&lt;h3 id=&quot;참고&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%B0%B8%EA%B3%A0&quot; aria-label=&quot;참고 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;참고&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/History/pushState&quot;&gt;https://developer.mozilla.org/en-US/docs/Web/API/History/pushState&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[npm 패키지 만들어보기 (react-popup-draggable-resizable)]]></title><description><![CDATA[NPM패키지를 한번도 publish해본 경험이 없어서 이번 기회에 경험삼아 만들어보고 싶었다.
 패키지 작성부터 빌드, publish…]]></description><link>https://bokim1004.github.io/react/react-popup-draggable-resizable-npm-만들기/</link><guid isPermaLink="false">https://bokim1004.github.io/react/react-popup-draggable-resizable-npm-만들기/</guid><pubDate>Sun, 16 Mar 2025 13:04:01 GMT</pubDate><content:encoded>&lt;p&gt;NPM패키지를 한번도 publish해본 경험이 없어서 이번 기회에 경험삼아 만들어보고 싶었다.&lt;br/&gt;
 패키지 작성부터 빌드, publish까지 “한 번 만들어보면 별거 아니지만, 해보기 전까지는 어렵게 느껴진다”라는 말을 듣고 이번 기회에 도전해보기로 했다.&lt;br/&gt;
 NPM패키지를 작성해보면서 어떻게 패키지를 만들어야하는지 살펴보고, 실제 publish까지 해본 과정을 글로 남겨보았다.&lt;/p&gt;
