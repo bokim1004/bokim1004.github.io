@@ -9,9 +9,10 @@ draft: false
 
 ### 들어가며
 
-오랜만에 Vanilla JS로 개발을 해볼 일이 생겼다.Vanilla JS로 SPA 구현하기를 진행하다보니 라우팅 구현을 2가지 방식으로 할 수 있다는 것을 알게 되었다.
-History API를 이용한 브라우저 라우터와 Hash 라우터로 라우팅 구현을 하면서 좀 더 이 부분에 대해 깊이 있는 이해를 하면 좋겠다는 생각이 들었다.
-둘의 차이는 무엇이고 동작원리는 어떤지 살펴본 후, 실제로 라우팅 시 겪었던 이슈를 정리해봤다.
+오랜만에 Vanilla JS로 개발을 해볼 일이 생겼다.Vanilla JS로 SPA 구현하기를 진행하다보니 라우팅 구현을 두 가지 방식으로 구현할 수 있다는 것을 알게 되었다.
+바로 History API를 이용한 `Browser 라우터`와 `Hash 라우터`이다. 이 두 방식의 차이와 동작 원리를 더 깊이 이해하고 싶어졌고, 실제로 라우팅 시 겪었던 이슈들도 함께 정리해봤다.
+
+---
 
 ### 🔍 1. Hash Router란?
 
@@ -21,13 +22,14 @@ History API를 이용한 브라우저 라우터와 Hash 라우터로 라우팅 �
   `예: <https://example.com/#/about>`
 
 - `# 이후의 값`은 브라우저가 서버로 전송하지 않는다.
-
-- 서버는 항상 같은 index.html을 응답하고, 클라이언트가 라우팅 처리한다.
+- 서버는 항상 같은 index.html을 응답하고, 클라이언트가 라우팅 처리한다.<br/>
+   ⸰ 브라우저 주소창에서 아무리 경로가 바뀌어도 서버는 오직 루트 경로`(/)`만 요청받는다.
+   ⸰ 따라서, 서버에 따로 설정해줄 필요가 없다.
 
 **⚙️ 작동 방식**
 
 - `window.addEventListener('hashchange', callback)`을 통해 URL 변경을 감지한다.
-- URL의 location.hash 값을 읽어와 렌더링 로직을 수행한다.
+- location.hash 값을 기반으로 화면을 렌더링한다.
 
 **🌟 장점**
 
@@ -36,8 +38,10 @@ History API를 이용한 브라우저 라우터와 Hash 라우터로 라우팅 �
 
 **❌ 단점**
 
-- SEO에 불리하다. 구글이 해시 기반 라우팅을 완전히 크롤링하지 못하는 경우도 있다고 한다.
+- SEO에 불리하다.(구글이 해시 기반 라우팅을 완전히 크롤링하지 못하는 경우도 있다고 함)
 - 브라우저 기본 동작과 달라 사용자 경험이 떨어질 수 있다.
+
+---
 
 ### 🔍  2. Browser Router (History Router)란?
 
@@ -45,15 +49,17 @@ History API를 이용한 브라우저 라우터와 Hash 라우터로 라우팅 �
 
 - Browser Router는 HTML5 History API를 기반으로 URL을 관리한다.
    `예: https://example.com/about`
+- URL 경로를 그대로 사용하기에, 서버가 해당 경로 요청을 처리할 수 있도록 설정이 필요하다.
 
 - 실제로 페이지를 새로고침하지 않으면서도, 마치 페이지가 이동한 것처럼 보이게 한다.
+<br/>
 
 **⚙️ 작동 방식**
 
-Browser Router는 History API를 기반으로 작동하는데 크게 알아야할 개념은 아래 3가지다.<br/>
+Browser Router는 다음 세 가지 History API를 기반으로 동작한다:<br/>
 `1. history.pushState(state, title, url)`
 
-- 브라우저의 히스토리 스택에 새로운 항목을 추가하면서,주소창(URL)을 바꿔주는 함수로 pushState를 하면 페이지는 새로고침되지 않는다.
+- 브라우저 주소창의 URL을 바꾸면서도 새로고침 없이 페이지 전환이 가능하다.
 
 ```js
 history.pushState({}, "", `/profile`);
@@ -65,8 +71,7 @@ history.pushState는 그저 url만 바꿔준다.
 
 `2. history.replaceState(state, title, url)`
 
-- 현재 히스토리 항목을 교체한다. 즉, 지금 보고 있는 페이지의 URL을 바꾸는 것이다.
-- 뒤로 가기를 눌러도 이전 URL로 돌아가지 않는다.
+- 현재 페이지의 URL을 대체한다. (뒤로 가기로 이전 URL로 돌아가지 않음)
 
 ```js
     history.replaceState(null, "", `${BASE_PATH}/login`);
@@ -86,19 +91,27 @@ window.addEventListener("popstate", renderRoute);
 **🌟 장점**
 
 - URL이 깔끔하고, 사용자 경험이 더 자연스럽다.
-- SEO 친화적이다.
+- SEO에 유리하다.
 
 **❌ 단점**
 
-- 서버 설정 필요하다. 모든 경로 요청에 대해 index.html을 리턴하도록 설정해야 한다 → 그렇지 않으면 새로고침 시 404 에러가 발생한다.
-
-> 난 package.json에서 build시 `cp dist/index.html dist/404.html` 이 부분을 추가해줬다. build시  404.html을 index.html처럼 동작하게한 것인데, index.html을 그대로 복사해서 404.html로 만들어두면 404처럼 보여도 실제로는 라우팅이 잘 작동하게 된다.
-
 - 정적 호스팅(GitHub Pages 등)에서는 설정이 번거로울 수 있다.
+- 서버 설정이 필요하다.
+   ⸰ 모든 경로 요청에 대해 `index.html`을 리턴하도록 설정하지 않으면, 새로고침 시 404에러가 발생한다.
 
-### HASH 라우터와 브라우저 라우터 구현 시 이슈가 있었던 부분
+**📌 BrowserRouter는 왜 서버 설정이 필요할까?**<br/>
 
-나의 경우엔 배포 시 url에 BASE_PATH가 붙어야했다. 그래서 브라우저 라우터쪽에는 BASE_PATH를 아래와 같이 붙여줬다.
+예를 들어 `https://example.com/profile` 이런 URL 경로가 있다고 하자. <br/>
+브라우저는 서버에 `/profile`경로로 요청을 보낸다. 서버는 이 경로에 해당하는 파일을 찾는데, 이 경로에 맞는 파일이 없으면 404에러가 발생하는 것이다.<br/>
+
+SPA구현 시 모든 페이지가 `index.html`하나로 구성되고 JS가 클라이언트에서 경로에 맞는 컴포넌트를 렌더링하는데 서버는 모든 경로 요청에 대해 `index.html`을 리턴하도록 설정해야 한다.<br/>
+난 package.json에서 build시 `cp dist/index.html dist/404.html` 이 부분을 추가해줬다. build시  404.html을 index.html처럼 동작하게한 것인데, index.html을 그대로 복사해서 404.html로 만들어두면 404처럼 보여도 실제로는 라우팅이 잘 작동하게 된다.
+
+---
+
+### 🛠 라우터 구현 시 겪은 이슈
+
+나의 경우엔 배포 시 url에 BASE_PATH가 붙어야했다. 그래서 Browser Router에서 다음처럼 설정했다.
 
 ```js
 const routes = {
@@ -124,14 +137,13 @@ const routes = {
     },
 ```
 
-build하면 dist에 index.hash.html이 잘 나오는데도 원인을 찾지 못해 이것 저것 시도하다가 BASE_PATH가 중복된 것이 문제의 원인이었다 ㅠㅠ
-BrowserRouter와 HashRouter는 URL을 해석하는 방식이 달라서 base_path 처리 방식도 다르게 가져가야한다는 것을 알게 되었다.
-
-🔍 요약해보면,<br/>
-BrowserRouter는 실제 경로(URL path)를 사용하기 때문에 base_path 설정이 필요했다.<br/>
-난 GitHub Pages처럼 서브 디렉토리에 호스팅이 필요했기에 base 설정이 필수인 상황이었다.
-
-HashRouter는 # 뒤에 붙는 해시로 경로를 관리하기 때문에, base_path를 넣을 필요가 없었다.오히려 넣으면 base_path가 중복되었다.
+빌드하면 dist에 `index.hash.html`파일은 잘 생성되었지만, Hash Router에서 base path가 URL에 중복된 것이 문제의 원인이었다.
+BrowserRouter와 HashRouter는 URL을 해석하는 방식이 달라서 base_path 처리 방식도 다르게 가져가야한다는 것을 알게 되었다.<br/>
+Hash Router에서는 BASE_PATH를 제거하고 아래와 같이 경로를 간단하게 설정했다.<br/>
+BrowserRouter는 실제 경로(URL path)를 사용하기 때문에 base_path 설정이 필요했다.
+난 GitHub Pages처럼 서브 디렉토리에 호스팅이 필요했기에 base 설정이 필수인 상황이었다.<br/>
+그러나, HashRouter는 # 뒤에 붙는 해시로 경로를 관리하기 때문에, base_path를 넣을 필요가 없었다.<br/>
+오히려 넣으면 base_path가 중복되었다.
 그래서 base_path를 넣지 않고 라우팅되게 해주었다~!
 
 ```js
@@ -143,6 +155,22 @@ const hashRoutes = {
 
 ```
 
+---
+
+### ✅ 요약
+
+| 항목               | Hash Router                        | Browser Router                         |
+|--------------------|------------------------------------|----------------------------------------|
+| URL 형태           | example.com/#/about                | example.com/about                      |
+| 서버 설정 필요 여부 | ❌ 필요 없음                         | ✅ 필요 (모든 요청을 index.html로 응답) |
+| SEO                | ❌ 불리함                           | ✅ 유리함                               |
+| 장점               | 구현이 쉽고 정적 호스팅에 적합        | URL이 자연스럽고 SEO에 좋음            |
+| 단점               | SEO와 UX에 단점                     | 서버 설정이 번거로움                   |
+
+<br/>
+
+---
+
 ### 마치며
 
 핵심적으로 hash router 동작에 대한 이해가 부족했던 것 같다.<br/>
@@ -151,7 +179,7 @@ const hashRoutes = {
 그런데 이 부분은 라우팅(URL path)을 위한 건 아니기 때문에 브라우저 라우팅 시 base path(`/front_5th_chapter1-1/` )를 넣어야하는 것이었고,
 HashRouter는 그냥 index.hash.html만 잘 열리면, JS가 알아서 해시 경로 보고 라우팅해주는 방식이기 때문에
 라우팅 자체는 base path를 신경 안 써도 되는 구조인 것이다.<br/>
-개념만 공부하는 것보다 역시 직접 개발해보며 겪어봐야 알게되는 것 같다 >_<
+개념만 공부하는 것보다 역시 직접 개발해보며 겪어봐야 알게되는 것 같다~~
 
 ### 참고
 
