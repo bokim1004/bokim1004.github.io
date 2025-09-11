@@ -279,6 +279,9 @@ worker<span class="token punctuation">.</span><span class="token function">postM
 <h4 id="tensorflowjs-텐서-누수" style="position:relative;"><a href="#tensorflowjs-%ED%85%90%EC%84%9C-%EB%88%84%EC%88%98" aria-label="tensorflowjs 텐서 누수 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong>TensorFlow.js 텐서 누수</strong></h4>
 <p>원본 코드는 <code class="language-text">tf.tidy()</code>와 <code class="language-text">startScope/endScope</code>를 사용하고 있어서 대체로 안전했었지만, 예외 상황에서 누수가 생길 수 있다.</p>
 <h2 id="마치며" style="position:relative;"><a href="#%EB%A7%88%EC%B9%98%EB%A9%B0" aria-label="마치며 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>마치며</h2>
+<img src="https://velog.velcdn.com/images/chloeee/post/fc4bd24e-0b38-4fef-9256-05ef1d3afabe/image.png" width="20%" alt="image">
+<p>메인스레드와 web worker의 통신으로 나온 결과물!<br/>
+초록색 상자는 실시간 유저의 발을 감지한다. 이 기능 추가로 사용자 경험 개선에 긍정적인 영향을 주었다.</p>
 <p>Web Worker는 평소에는 필요성을 느끼기 어려울 수 있지만,
 연산량이 큰 작업을 메인 스레드에서 분리해 UI 성능과 사용자 경험을 지키는 강력한 도구임을 실무에서 체감했다.</p>
 <p>ML 모델, 이미지 처리, 복잡한 연산이 필요한 웹 애플리케이션을 만든다면
